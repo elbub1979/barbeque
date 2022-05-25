@@ -1,4 +1,4 @@
-<div class="col-sm-6 col-md-4 mx-2">
+<div class="col-lg-3 col-sm-6 col-md-4 py-1 px-1">
   <div class="thumbnail">
 
     <%= content_tag 'div', '', class: 'event-background',
@@ -6,7 +6,7 @@
 
     <div class="thumbnail-inner event-info-inner">
       <div class="caption">
-        <div class="event-description px-1 py-1">
+        <div class="event-description px-1 py-1 text-center">
           <h3><%= link_to event.title, event_path(event) %></h3>
           <h3><small><%= event.datetime %></small></h3>
           <div><%= event.address %></div>
