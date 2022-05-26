@@ -77,3 +77,9 @@ ru:
       not_saved:
         one: "1 ошибка, запрещающая этот %{resource} от того, чтобы быть спасенным:"
         other: "%{count} ошибки запрещали это %{resource} от того, чтобы быть спасенным:"
+  characters minimum: "знаков минимум"
+  Sign up: "Зарегистрироваться"
+  Log in: "Войти"
+  Forgot your password?: "Забыли пароль?"
+  Didn't receive confirmation instructions?: "Не получили инструкцию по подтверждению?"
+  Didn't receive unlock instructions?: "Не получили инструкцию по разблокироваке?"

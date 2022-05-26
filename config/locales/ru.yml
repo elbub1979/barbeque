@@ -35,3 +35,4 @@ ru:
 
   date:
     order: [ "day", "month", "year" ]
+  User was successfully updated: "Данные пользовтеля успешно обновлены!"

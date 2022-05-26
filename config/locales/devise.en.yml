@@ -63,3 +63,10 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  characters minimum: ""
+  Sign up: ""
+  Log in: ""
+  Forgot your password?: ""
+  Didn't receive confirmation instructions?: ""
+  Didn't receive unlock instructions?: ""
+  User was successfully updated: ""
