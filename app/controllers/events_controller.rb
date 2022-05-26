@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
 
     if @event.save
-      redirect_to event_path(@event), notice: 'Событие добавлено.'
+      redirect_to event_path(@event), notice: t('controllers.events.created')
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,16 +27,16 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to event_path(@event), notice: 'Событие обновлено.'
+      redirect_to event_path(@event), notice: t('controllers.events.updated')
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    # @event.destroy
+    @event.destroy
 
-    redirect_to user_path(current_user), status: :see_other, notice: 'Событие удалено.'
+    redirect_to user_path(current_user), status: :see_other, notice: t('controllers.events.destroyed')
   end
 end
 
