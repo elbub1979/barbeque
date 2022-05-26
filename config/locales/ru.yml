@@ -35,4 +35,10 @@ ru:
 
   date:
     order: [ "day", "month", "year" ]
-  User was successfully updated: "Данные пользовтеля успешно обновлены!"
+
+  # Перевод и склонения вьюх
+  events:
+    zero: 'событий'
+    one: 'событие'
+    few: 'события'
+    many: 'событий'
