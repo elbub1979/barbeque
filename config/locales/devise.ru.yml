@@ -91,13 +91,22 @@ ru:
       log_in: "Войти"
     registration:
       sign_up: "Зарегистрироваться"
+    nav:
+      back: 'Назад'
+
+  button:
+    destroy:
+      destroy_account: 'Удалить аккаунт'
 
     password:
       forgot_your_password?: "Забыли пароль?"
     instruction:
       not_receive_confirmation_instructions?: "Не получили инструкцию по подтверждению?"
       not_receive_unlock_instructions?: "Не получили инструкцию по разблокироваке?"
+
   form:
+    submit:
+      update: 'Обновить'
     password:
       leave_blank: "оставьте пустым, если не хотите менять"
       confirm_your_changes: "введите текущий пароль для подтверждения"
