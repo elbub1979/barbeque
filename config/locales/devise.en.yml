@@ -70,3 +70,5 @@ en:
   Didn't receive confirmation instructions?: ""
   Didn't receive unlock instructions?: ""
   User was successfully updated: ""
+  leave blank if you don't want to change it: ""
+  we need your current password to confirm your changes: ""

@@ -20,11 +20,11 @@ ru:
       unconfirmed: "Вы должны подтвердить свой адрес электронной почты, прежде чем продолжить."
     mailer:
       confirmation_instructions:
-        subject: "Инструкции по подтверждению"
+        subject: "Инструкция по подтверждению"
       reset_password_instructions:
-        subject: "Инструкции по сбросу пароля"
+        subject: "Инструкция по сбросу пароля"
       unlock_instructions:
-        subject: "Инструкции по разблокировке"
+        subject: "Инструкция по разблокировке"
       email_changed:
         subject: "Электронная почта изменена"
       password_change:
@@ -43,7 +43,7 @@ ru:
       updated: "Ваш пароль был успешно изменен. Теперь вы вошли в систему."
       updated_not_active: "Ваш пароль был успешно изменен."
     registrations:
-      destroyed: "Пока! Ваша учетная запись была успешно аннулирована. Мы надеемся скоро увидеть вас снова."
+      destroyed: "Пока! Ваша учетная запись была успешно удалена. Мы надеемся скоро увидеть вас снова."
       signed_up: "Добро пожаловать! Вы успешно зарегистрировались."
       signed_up_but_inactive: "Вы успешно зарегистрировались. Однако мы не смогли войти в систему, поскольку ваша 
       учетная запись еще не активирована."
@@ -58,9 +58,9 @@ ru:
       updated_but_not_signed_in: "Ваша учетная запись была успешно обновлена, но поскольку ваш пароль был изменен, 
       вам необходимо снова войти в систему."
     sessions:
-      signed_in: "Успешно вошел в систему."
-      signed_out: "Успешно вышел из системы."
-      already_signed_out: "Успешно вышел из системы."
+      signed_in: "Успешный вход в систему."
+      signed_out: "Успешный выход из системы."
+      already_signed_out: "Успешный выход из системы."
     unlocks:
       send_instructions: "Через несколько минут вы получите электронное письмо с инструкциями о том, как разблокировать 
       свою учетную запись."
@@ -70,16 +70,34 @@ ru:
   errors:
     messages:
       already_confirmed: "был уже подтвержден, пожалуйста, попробуйте войти в систему"
-      confirmation_period_expired: "необходимо подтвердить в течение %{period}, please request a new one"
+      confirmation_period_expired: "необходимо подтвердить в течение %{period}, пожалуйста, запросите новый"
       expired: "истек срок действия, пожалуйста, запросите новый"
       not_found: "не найдено"
-      not_locked: "был не заперт"
+      not_locked: "не был заблокирован"
       not_saved:
-        one: "1 ошибка, запрещающая этот %{resource} от того, чтобы быть спасенным:"
-        other: "%{count} ошибки запрещали это %{resource} от того, чтобы быть спасенным:"
+        one: "В вашей форме %{count} ошибка:"
+        few: "В вашей форме %{count} ошибки:"
+        many: "В вашей форме %{count} ошибок:"
+        other: "В вашей форме %{count} ошибок:"
   characters minimum: "знаков минимум"
-  Sign up: "Зарегистрироваться"
-  Log in: "Войти"
-  Forgot your password?: "Забыли пароль?"
-  Didn't receive confirmation instructions?: "Не получили инструкцию по подтверждению?"
-  Didn't receive unlock instructions?: "Не получили инструкцию по разблокироваке?"
+  title:
+    authorize:
+      log_in: "Войти"
+    registration:
+      sign_up: "Зарегистрироваться"
+
+  link:
+    authorize:
+      log_in: "Войти"
+    registration:
+      sign_up: "Зарегистрироваться"
+
+    password:
+      forgot_your_password?: "Забыли пароль?"
+    instruction:
+      not_receive_confirmation_instructions?: "Не получили инструкцию по подтверждению?"
+      not_receive_unlock_instructions?: "Не получили инструкцию по разблокироваке?"
+  form:
+    password:
+      leave_blank: "оставьте пустым, если не хотите менять"
+      confirm_your_changes: "введите текущий пароль для подтверждения"
