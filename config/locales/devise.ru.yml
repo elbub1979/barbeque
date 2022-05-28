@@ -11,7 +11,7 @@ ru:
     failure:
       already_authenticated: "Вы уже вошли в систему."
       inactive: "Ваша учетная запись еще не активирована."
-      invalid: "Неверные ключи аутентификации или пароль."
+      invalid: "Неверный логин или пароль."
       locked: "Ваша учетная запись заблокирована."
       last_attempt: "У вас есть еще одна попытка, прежде чем ваша учетная запись будет заблокирована."
       not_found_in_database: "Неверные ключи аутентификации или пароль."
@@ -85,7 +85,8 @@ ru:
       log_in: "Войти"
     registration:
       sign_up: "Зарегистрироваться"
-
+    recovery:
+      password: 'Забыли пароль?'
   link:
     authorize:
       log_in: "Войти"
@@ -93,13 +94,13 @@ ru:
       sign_up: "Зарегистрироваться"
     nav:
       back: 'Назад'
+    password:
+      forgot_your_password?: "Забыли пароль?"
 
   button:
     destroy:
       destroy_account: 'Удалить аккаунт'
 
-    password:
-      forgot_your_password?: "Забыли пароль?"
     instruction:
       not_receive_confirmation_instructions?: "Не получили инструкцию по подтверждению?"
       not_receive_unlock_instructions?: "Не получили инструкцию по разблокироваке?"
@@ -107,6 +108,7 @@ ru:
   form:
     submit:
       update: 'Обновить'
+      recovery: 'Оправить инструкцию по сбросу пароля'
     password:
       leave_blank: "оставьте пустым, если не хотите менять"
       confirm_your_changes: "введите текущий пароль для подтверждения"
