@@ -80,13 +80,16 @@ ru:
         many: "В вашей форме %{count} ошибок:"
         other: "В вашей форме %{count} ошибок:"
   characters minimum: "знаков минимум"
+
   title:
     authorize:
       log_in: "Войти"
     registration:
       sign_up: "Зарегистрироваться"
+      edit: 'Редактировать'
     recovery:
       password: 'Забыли пароль?'
+
   link:
     authorize:
       log_in: "Войти"
