@@ -1,7 +1,7 @@
 <% if errors.any? %>
   <div class="alert alert-danger">
     <div class="lead buffer-bottom">
-      В вашей форме <%= errors.count %> ошибок
+      В вашей форме <%= errors.count %> <%= t("view.error", count: errors.count) %>
     </div>
 
     <ul>
