@@ -1,0 +1,21 @@
+<div class="pb-3">
+  <p><%= comment.body %></p>
+  <p>
+    <span>
+      <% if comment.user.present? %>
+        <%= render partial: 'users/user', object: comment.user %>
+      <% else %>
+        <em><strong><%= comment.user_name %></em></strong>
+<% end %>
+       </span>
+    <em><%= l comment.created_at, format: :short %></em>
+    <% if current_user_can_edit?(comment) %>
+      <%= link_to(
+            fa_icon('trash'),
+            event_comment_path(comment.event, comment),
+            data: { turbo_confirm: t('.destroy_confirm'),
+                    turbo_method: :delete }
+          ) %>
+    <% end %>
+  </p>
+</div>

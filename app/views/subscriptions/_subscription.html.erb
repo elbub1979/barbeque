@@ -1,0 +1,15 @@
+<span class="subscription">
+  <% if subscription.user.present? %>
+    <%= render partial: 'users/user', object: subscription.user %>
+  <% else %>
+    <%= subscription.user_name %>
+  <% end %>
+  <% if current_user_can_edit?(subscription) %>
+    <%= link_to(
+          fa_icon('times'),
+          event_subscription_path(subscription.event, subscription),
+          data: { turbo_confirm: t('.destroy_confirm'),
+                  turbo_method: :delete }
+        ) %>
+  <% end %>
+</span>

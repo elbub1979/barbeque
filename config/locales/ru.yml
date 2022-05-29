@@ -32,11 +32,26 @@ ru:
       non_created: 'Вы не создали мероприятие'
     users:
       updated: 'Вы обновили свой профиль'
+    comments:
+      created: 'Вы оставили новый комментарий'
+      error: 'Ошибка с с омментарием'
+      destroyed: 'Комментарий удалён'
+    subscriptions:
+      created: 'Вы подпсианы на это событие'
+      destroyed:  'Участник отписан'
+      error: 'Подписка/отписка не сработала'
 
   # Перевод названия приложения и компании-разработчика
   app:
     name: 'Шашлыки'
     company: 'Хороший программист'
+
+    comments:
+      comment:
+        destroy_confirm: 'Вы уверены, что хотите удалить комментарий?'
+    subscriptions:
+      subscription:
+        destroy_confirm: 'Вы уверены, что хотите удалить подписку?'
 
   date:
     order: [ "day", "month", "year" ]
