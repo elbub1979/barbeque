@@ -7,14 +7,14 @@ class CommentsController < ApplicationController
     @new_comment.user = current_user
 
     if @new_comment.save
-      redirect_to @event, notice: t("controller.comments.created")
+      redirect_to @event, notice: t("controllers.comments.created")
     else
-      render 'events/show', alert: t("controller.comments.error")
+      render 'events/show', status: :unprocessable_entity
     end
   end
 
   def destroy
-    message = { notice: t("controller.comments.destroyed") }
+    message = { notice: t("controllers.comments.destroyed") }
     if current_user_can_edit?(@comment)
       @comment.destroy!
     else
@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
   private
 
   def set_event
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:event_id])
   end
 
   def set_comment

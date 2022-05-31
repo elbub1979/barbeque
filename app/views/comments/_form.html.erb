@@ -1,17 +1,21 @@
-<%= form_with(model: comment) do |form| %>
-  <% if comment.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+<%= form_for [@event, comment] do |f| %>
+  <%= render partial: 'partials/form_errors', locals: { errors: comment.errors } %>
 
-      <ul>
-        <% comment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <div class="pt-3">
+    <%= f.label :body, class: 'form-label' %>
+    <%= f.text_field :body, class: 'form-control' %>
+  </div>
+
+  <% unless user_signed_in? %>
+    <div class="pt-3">
+      <%= f.label :user_name, class: 'form-label' %>
+      <%= f.text_field :user_name, class: 'form-control' %>
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
+  <div class="col-md-12 pt-3">
+    <div class="actions">
+      <%= f.submit "Отправить", class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>

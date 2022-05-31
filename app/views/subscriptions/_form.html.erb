@@ -1,17 +1,21 @@
-<%= form_with(model: subscription) do |form| %>
-  <% if subscription.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+<%= form_for [@event, subscription] do |f| %>
+  <%= render partial: 'partials/form_errors', locals: { errors: subscription.errors } %>
 
-      <ul>
-        <% subscription.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <% unless user_signed_in? %>
+    <div class="pt-3">
+      <%= f.label :user_name, class: 'form-label' %>
+      <%= f.text_field :user_name, class: 'form-control' %>
+    </div>
+
+    <div class="pt-3">
+      <%= f.label :user_email, class: 'form-label' %>
+      <%= f.text_field :user_email, class: 'form-control' %>
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
+  <div class="col-md-12 pt-3">
+    <div class="actions">
+      <%= f.submit "Подписаться", class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>

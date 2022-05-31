@@ -29,8 +29,9 @@
   <div class="row">
     <div class="col-8">
       <div class="event-comment pt-3">
+        <%= render partial: 'comments/form', locals: { comment: @new_comment || @event.comments.build}  %>
         <div class="pb-3">
-          <%= render partial: 'comments/comment', collection: @event.comments %>
+          <%= render partial: 'comments/comment', collection: @event.comments.except(@new_comment) %>
         </div>
       </div>
     </div>
@@ -44,14 +45,14 @@
         <h4>Пойдут:</h4>
         <div>
           <p>
-            <%= render partial: 'subscriptions/subscription', collection: @event.subscriptions %>
+            <%= render partial: 'subscriptions/subscription', collection: @event.subscriptions.except(@new_subscription) %>
           </p>
         </div>
       </div>
       <div class="event-subscription-form">
         <h4>Я пойду:</h4>
         <div>
-
+          <%= render partial: 'subscriptions/form', locals: { subscription: @new_subscription || @event.subscriptions.build} %>
         </div>
       </div>
     </div>

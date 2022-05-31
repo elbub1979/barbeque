@@ -5,6 +5,7 @@ ruby '3.0.2'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'devise'
+# gem 'font_awesome5_rails'
 # gem 'devise-i18n'
 gem 'devise-i18n'
 gem 'jbuilder'

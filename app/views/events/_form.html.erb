@@ -1,6 +1,5 @@
-<%# Паршиал дляотображения формы создания нового события %>
 <%= form_for(@event) do |f| %>
-  <%= render partial: 'partials/form_errors', locals: {errors: @event.errors} %>
+  <%= render partial: 'partials/form_errors', locals: { errors: @event.errors } %>
 
   <div class="form-group py-2">
     <%= f.label :title %>

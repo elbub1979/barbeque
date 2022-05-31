@@ -1,24 +1,25 @@
 class SubscriptionsController < ApplicationController
   before_action :set_event, only: %i[create destroy]
   before_action :set_subscription, only: %i[destroy]
+
   def create
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
-    if @subscription.save
-      redirect_to @event, notice: t("controller.subscription.created")
+    if @new_subscription.save
+      redirect_to @event, notice: t("controllers.subscriptions.created")
     else
-      render 'events/show', alert: t("controller.subscription.error")
+      render 'events/show', status: :unprocessable_entity
     end
   end
 
   def destroy
-    message = { notice: t("controller.subscriptions.destroy") }
+    message = { notice: t("controllers.subscriptions.destroyed") }
 
     if current_user_can_edit?(@subscription)
       @subscription.destroy
     else
-      message = { notice: t("controller.subscriptions.error") }
+      message = { notice: t("controllers.subscriptions.error") }
     end
 
     redirect_to @event, message
@@ -27,7 +28,7 @@ class SubscriptionsController < ApplicationController
   private
 
   def set_subscription
-    @subscription = @event.subscription.find(params[:id])
+    @subscription = @event.subscriptions.find(params[:id])
   end
 
   def set_event
