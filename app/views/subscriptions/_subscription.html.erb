@@ -6,10 +6,11 @@
   <% end %>
   <% if current_user_can_edit?(subscription) %>
     <%= link_to(
-          'удалить',
           event_subscription_path(subscription.event, subscription),
-          data: { turbo_method: :delete, turbo_confirm: t('.destroy_confirm')
+          data: { turbo_method: :delete, turbo_confirm: t('views.subscriptions.subscription.destroy_confirm')
           }
-        ) %>
+        ) do %>
+     <i class="bi-trash" role="img" aria-label="to_trash"></i>
   <% end %>
+    <% end %>
 </span>

@@ -37,29 +37,35 @@ ru:
       error: 'Ошибка с с омментарием'
       destroyed: 'Комментарий удалён'
     subscriptions:
-      created: 'Вы подпсианы на это событие'
+      created: 'Вы подписаны на это событие'
       destroyed:  'Участник отписан'
       error: 'Подписка/отписка не сработала'
 
-  view:
+  views:
     error:
       zero: 'ошибок'
       one: 'ошибка'
       few: 'ошибки'
       many: 'событий'
 
+    subscriptions:
+      form:
+        user_name: 'Имя пользователя'
+        user_email: 'Электронная почта'
+      subscription:
+        destroy_confirm: 'Вы уверены, что хотите отписаться от события?'
+
+    comments:
+      form:
+        body: 'Текст'
+        user_name: 'Имя пользователя'
+      comment:
+        destroy_confirm: 'Вы уверены, что хотите удалить комментарий?'
 
   # Перевод названия приложения и компании-разработчика
   app:
     name: 'Шашлыки'
     company: 'Хороший программист'
-
-    comments:
-      comment:
-        destroy_confirm: 'Вы уверены, что хотите удалить комментарий?'
-    subscriptions:
-      subscription:
-        destroy_confirm: 'Вы уверены, что хотите удалить подписку?'
 
   date:
     order: [ "day", "month", "year" ]
@@ -70,3 +76,6 @@ ru:
     one: 'событие'
     few: 'события'
     many: 'событий'
+  comments:
+
+

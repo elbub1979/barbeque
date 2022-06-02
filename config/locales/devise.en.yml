@@ -72,3 +72,10 @@ en:
   User was successfully updated: ""
   leave blank if you don't want to change it: ""
   we need your current password to confirm your changes: ""
+  views:
+    comments:
+      comment:
+        destroy_confirm: ""
+  comments:
+    form:
+      body: ""

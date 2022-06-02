@@ -3,12 +3,12 @@
 
   <% unless user_signed_in? %>
     <div class="pt-3">
-      <%= f.label :user_name, class: 'form-label' %>
+      <%= f.label t('views.subscriptions.form.user_name'), class: 'form-label' %>
       <%= f.text_field :user_name, class: 'form-control' %>
     </div>
 
     <div class="pt-3">
-      <%= f.label :user_email, class: 'form-label' %>
+      <%= f.label t('views.subscriptions.form.user_email'), class: 'form-label' %>
       <%= f.text_field :user_email, class: 'form-control' %>
     </div>
   <% end %>

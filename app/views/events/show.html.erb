@@ -18,7 +18,8 @@
             <div class="px-2 py-2">
               <%= link_to 'Изменить', edit_event_path(@event),
                           class: 'btn btn-primary' %>
-              <%= link_to 'Удалить', @event, data: { turbo_confirm: "Вы уверены?", turbo_method: :delete }, class: 'btn btn-secondary' %>
+              <%= link_to 'Удалить', @event, data: { turbo_confirm: "Вы уверены?", turbo_method: :delete },
+                          lass: 'btn btn-secondary' %>
             </div>
           <% end %>
         </div>
@@ -29,7 +30,7 @@
   <div class="row">
     <div class="col-8">
       <div class="event-comment pt-3">
-        <%= render partial: 'comments/form', locals: { comment: @new_comment || @event.comments.build}  %>
+        <%= render partial: 'comments/form', locals: { comment: @new_comment || @event.comments.build } %>
         <div class="pb-3">
           <%= render partial: 'comments/comment', collection: @event.comments.except(@new_comment) %>
         </div>
@@ -49,12 +50,15 @@
           </p>
         </div>
       </div>
-      <div class="event-subscription-form">
-        <h4>Я пойду:</h4>
-        <div>
-          <%= render partial: 'subscriptions/form', locals: { subscription: @new_subscription || @event.subscriptions.build} %>
+
+      <% unless user_author?(@event) %>
+        <div class="event-subscription-form">
+          <h4>Я пойду:</h4>
+          <div>
+            <%= render partial: 'subscriptions/form', locals: { subscription: @new_subscription || @event.subscriptions.build } %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

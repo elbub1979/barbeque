@@ -14,11 +14,11 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    message = { notice: t("controllers.comments.destroyed") }
+    message = { notice: t("controllers.comments.destroyed"), status: :see_other }
     if current_user_can_edit?(@comment)
       @comment.destroy!
     else
-      message = { alert: t("controllers.comments.error") }
+      message = { alert: t("controllers.comments.error"), status: :see_other }
     end
 
     redirect_to @event, message
