@@ -23,6 +23,11 @@ ru:
         datetime: 'Дата и время'
         description: 'Описание'
 
+    validates:
+      errors:
+        subscription:
+          user_email: 'Электронная почта существует'
+
   # Перевод сообщений, которые отправляет контроллер
   controllers:
     events:
@@ -46,7 +51,7 @@ ru:
       zero: 'ошибок'
       one: 'ошибка'
       few: 'ошибки'
-      many: 'событий'
+      many: 'ошибок'
 
     subscriptions:
       form:
@@ -77,5 +82,8 @@ ru:
     few: 'события'
     many: 'событий'
   comments:
+
+  errors:
+    format: '%{message}'
 
 

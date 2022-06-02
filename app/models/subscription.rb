@@ -10,6 +10,10 @@ class Subscription < ApplicationRecord
   validates :user, uniqueness: { scope: :event_id }, if: -> { user.present? }
   validates :user_email, uniqueness: { scope: :event_id }, unless: -> { user.present? }
 
+  validate :email_is_use?
+
+  before_validation :user_email_downcase
+
   def user_name
     if user.present?
       user.name
@@ -24,5 +28,17 @@ class Subscription < ApplicationRecord
     else
       super
     end
+  end
+
+  private
+
+  def user_email_downcase
+    user_email.downcase!
+  end
+
+  def email_is_use?
+    User.where('email = ?', user_email.downcase).first
+    message = 'activerecord.validates.errors.subscription.user_email'
+    errors.add(:user_email, message)
   end
 end
