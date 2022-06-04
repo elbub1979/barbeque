@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user_can_edit?
   helper_method :user_author?
+  helper_method :already_subscribe
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:account_update, keys: %i[password password_confirmation current_password])
@@ -18,6 +19,6 @@ class ApplicationController < ActionController::Base
   end
 
   def user_author?(event)
-    current_user == event.user
+    event.user == current_user
   end
 end
