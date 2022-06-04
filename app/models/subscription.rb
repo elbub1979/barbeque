@@ -42,7 +42,7 @@ class Subscription < ApplicationRecord
   # end
 
   def unregistered_subscriber_email
-    if User.where('email = ?', user_email).first
+    if User.find_by('email = ?', user_email)
       errors.add(:used, 'activerecord.validates.errors.subscription.user_email')
     end
   end
