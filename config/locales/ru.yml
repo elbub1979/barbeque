@@ -9,6 +9,12 @@ ru:
         many: 'Пользователей'
         other: 'Пользователей'
       event: 'Событие'
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              subscribe_user_email: 'Пользователь с указанной электронной почтой существует'
 
     # Перевод названий аттрибутов моделей
     attributes:
