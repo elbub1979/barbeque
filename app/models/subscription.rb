@@ -36,17 +36,15 @@ class Subscription < ApplicationRecord
   private
 
   def event_creator
-    errors.add(:event_creator, 'activerecord.validates.errors.subscription.event_creator') if event.user == user
+    errors.add(:event_creator, :event_subscription) if event.user == user
+  end
+
+  def unregistered_subscriber_email
+    errors.add(:user_email, :subscribe_user_email) if User.find_by('email = ?', user_email)
   end
 
   def user_email_downcase
     user_email.downcase! if user_email.present?
-  end
-
-  def unregistered_subscriber_email
-    if User.find_by('email = ?', user_email)
-      errors.add(:user_email, :subscribe_user_email)
-    end
   end
 
   def user_present?

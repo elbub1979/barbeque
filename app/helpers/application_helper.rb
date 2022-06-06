@@ -23,7 +23,34 @@ module ApplicationHelper
     else
       asset_path('user.png')
     end
+  end
 
+  def user_avatar_thumb(user)
+    if user.avatar.file.present?
+      user.avatar.thumb.url
+    else
+      asset_path('user.png')
+    end
+  end
+
+  def event_photo(event)
+    photos = event.photos.persisted
+
+    if photos.any?
+      photos.sample.photo.url
+    else
+      asset_path('event.png')
+    end
+  end
+
+  def event_thumb(event)
+    photos = event.photos.persisted
+
+    if photos.any?
+      photos.sample.photos.thumb.url
+    else
+      asset_path('event_thumb.png')
+    end
   end
 
   def fa_icon(icon_class)
