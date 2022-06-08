@@ -9,22 +9,17 @@ ru:
         many: 'Пользователей'
         other: 'Пользователей'
       event: 'Событие'
-      photo: 'Фотография'
     errors:
       models:
         subscription:
           attributes:
-            event_creator:
-              event_subscription: 'Невозможно подписаться на своё событие'
             user_email:
               subscribe_user_email: 'Пользователь с указанной электронной почтой существует'
-
     # Перевод названий аттрибутов моделей
     attributes:
       user:
         email: 'Email'
         name: 'Имя'
-        avatar: 'Аватарка'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
       event:
@@ -32,8 +27,12 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
-      photo:
-        photo: 'Фотография'
+
+    validates:
+      errors:
+        subscription:
+          subscribe_user_email: 'Пользователь с указанной электронной почтой существует'
+          event_creator: 'Невозможно подписаться на своё событие'
 
   # Перевод сообщений, которые отправляет контроллер
   controllers:
@@ -52,10 +51,6 @@ ru:
       created: 'Вы подписаны на это событие'
       destroyed:  'Участник отписан'
       error: 'Подписка/отписка не сработала'
-    photos:
-      error: 'Что-то не так с фото'
-      created: 'Вы добавили фотографию к событию'
-      destroyed: 'Вы удалили фото'
 
   views:
     error:

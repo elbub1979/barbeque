@@ -5,20 +5,19 @@ ruby '3.0.2'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'devise'
-# gem 'font_awesome5_rails'
-gem 'carrierwave'
 gem 'devise-i18n'
 gem 'i18n'
+gem "image_processing", ">= 1.2"
 gem 'jbuilder'
 gem 'jsbundling-rails'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.3'
 gem 'rails-i18n'
-gem 'rmagick'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
 
 group :development, :test do
   gem 'pry-rails'
