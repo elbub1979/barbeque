@@ -13,6 +13,10 @@
         <%= f.text_field :email, class: 'form-control' %>
       </div>
 
+      <%= f.label :avatar, class: 'form-label' %>
+      <%= f.file_field :avatar, class: 'form-control' %>
+      </div>
+
       <div class="pt-3">
         <%= f.label :avatar, class: 'form-label' %>
         <p><%= image_tag(@user.avatar.thumb.url) if @user.avatar? %></p>

@@ -1,5 +1,5 @@
 <span class="rounded-circle">
-    <%= image_tag(user_avatar(user), style: 'width: 50px') %>
+    <%= image_tag(user_avatar_thumb(user), class: 'rounded-circle') %>
 </span>
 <% if request.path == user_path(user) %>
   <%= user.name %>

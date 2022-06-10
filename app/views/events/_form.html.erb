@@ -21,6 +21,11 @@
     <%= f.text_area :description, class: 'form-control' %>
   </div>
 
+  <div class="form-group py-2">
+    <%= f.label :photo %>
+    <%= f.file_field :photo, class: 'form-control' %>
+  </div>
+
   <div class="actions py-2">
     <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
     или <%= link_to 'вернуться', :back %>
