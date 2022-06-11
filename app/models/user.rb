@@ -10,6 +10,8 @@ class User < ApplicationRecord
     attachable.variant :avatar, resize_to_fill: [350, 350]
   end
 
+  has_many_attached :photos
+
   before_save :downcase_email
 
   validates :name, presence: true, length: { maximum: 35 }

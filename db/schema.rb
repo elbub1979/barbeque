@@ -61,16 +61,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_08_202138) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.string "photo"
-    t.integer "event_id", null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_photos_on_event_id"
-    t.index ["user_id"], name: "index_photos_on_user_id"
-  end
-
   create_table "subscriptions", force: :cascade do |t|
     t.string "user_name"
     t.string "user_email"
@@ -101,8 +91,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_08_202138) do
   add_foreign_key "comments", "events"
   add_foreign_key "comments", "users"
   add_foreign_key "events", "users"
-  add_foreign_key "photos", "events"
-  add_foreign_key "photos", "users"
   add_foreign_key "subscriptions", "events"
   add_foreign_key "subscriptions", "users"
 end

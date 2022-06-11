@@ -30,7 +30,9 @@
   <div class="row">
     <div class="col-8">
       <div class="event-photos pt-3">
-
+        <% @event.photos.each do |photo| %>
+          <%= image_tag photo %>
+        <% end %>
       </div>
     </div>
   </div>

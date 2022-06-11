@@ -18,5 +18,14 @@
         <p class="pt-2">Пользователь не организовал ни одного события</p>
       <% end %>
     </div>
+    <div>
+      <% if @user.photos.attached? %>
+        <% @user.photos.each do |photo| %>
+          <%= image_tag photo %>
+        <% end %>
+      <% else %>
+        <p>Не добавил фото</p>
+      <% end %>
+    </div>
   </div>
 </div>
