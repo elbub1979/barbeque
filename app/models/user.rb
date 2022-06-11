@@ -4,13 +4,12 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
+  has_many :photos, dependent: :destroy
 
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_fill: [50, 50]
     attachable.variant :avatar, resize_to_fill: [350, 350]
   end
-
-  has_many_attached :photos
 
   before_save :downcase_email
 

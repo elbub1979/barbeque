@@ -7,7 +7,7 @@ class PhotosController < ApplicationController
     @new_photo.user = current_user
 
     if @new_photo.save
-      redirect_to @event, notice: t('controllers.photos.created')
+      redirect_to @event, notice: t("controllers.photo.created")
     else
       render 'events/show', status: :unprocessable_entity
     end
@@ -16,10 +16,10 @@ class PhotosController < ApplicationController
   def destroy
     message = { notice: t("controllers.photos.destroyed"), status: :see_other }
 
-    if current_user_can_edit?(@subscription)
-      @subscription.destroy
+    if current_user_can_edit?(@photo)
+      @photo.destroy
     else
-      message = { alert: t("controllers.photos.error"), status: :see_other }
+      message = { notice: t("controllers.subscriptions.error"), status: :see_other }
     end
 
     redirect_to @event, message
@@ -35,8 +35,7 @@ class PhotosController < ApplicationController
     @photo = @event.photos.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def photo_params
-    params.fetch(:photo, {}).permit(:photo)
+    params.fetch(:photo, {}).permit(:event, :photo)
   end
 end

@@ -17,6 +17,14 @@ module ApplicationHelper
     nil
   end
 
+  def photo_thumb(photo)
+    url_for(photo.photo.variant(:thumb)) if photo.photo.attached?
+  end
+
+  def photo_show(photo)
+    url_for(photo.photo.variant(:show)) if photo.photo.attached?
+  end
+
   def user_avatar_thumb(user)
     if user.avatar.attached?
       url_for(user.avatar.variant(:thumb))
@@ -33,6 +41,25 @@ module ApplicationHelper
     end
   end
 
+  def event_thumb(event)
+    photos = event.photos.persisted
+
+    if photos.any?
+      url_for(photos.sample.photo.variant(:thumb))
+    else
+      asset_path('event_thumb.jpg')
+    end
+  end
+
+  def event_photo(event)
+    photos = event.photos.persisted
+
+    if photos.any?
+      url_for(photos.sample.photo.variant(:show))
+    else
+      asset_path('event.jpg')
+    end
+  end
 
   def fa_icon(icon_class)
     content_tag 'icon', '', class: "fa fa-#{icon_class}"
