@@ -46,4 +46,8 @@ class Subscription < ApplicationRecord
   def unregistered_subscriber_email
     errors.add(:user_email, :subscribe_user_email) if User.find_by('email = ?', user_email)
   end
+
+  def user_present?
+    user.present?
+  end
 end

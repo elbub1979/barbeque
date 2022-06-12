@@ -29,7 +29,7 @@ module ApplicationHelper
     if user.avatar.attached?
       url_for(user.avatar.variant(:thumb))
     else
-      asset_path('user.png')
+      asset_path('user.png', class: 'img-icon')
     end
   end
 
