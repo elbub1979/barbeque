@@ -6,8 +6,8 @@ class User < ApplicationRecord
   has_many :subscriptions, dependent: :destroy
   has_many :photos, dependent: :destroy
 
-  has_one_attached :avatar do |attachable|
-    attachable.variant :thumb, resize_to_fill: [50, 50]
+  has_one_attached :avatar, dependent: :destroy do |attachable|
+    attachable.variant :thumb, resize_to_fill: [25, 25]
     attachable.variant :avatar, resize_to_fill: [350, 350]
   end
 
@@ -16,8 +16,6 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 35 }
 
   after_commit :link_subscriptions, on: :create
-
-  mount_uploader :avatar, AvatarUploader
 
   private
 

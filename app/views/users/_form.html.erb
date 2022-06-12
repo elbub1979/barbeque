@@ -19,7 +19,7 @@
 
       <div class="pt-3">
         <%= f.label :avatar, class: 'form-label' %>
-        <p><%= image_tag(@user.avatar.thumb.url) if @user.avatar? %></p>
+        <p><%= image_tag(user_avatar_thumb(@user)) if @user.avatar? %></p>
         <%= f.file_field :avatar %>
       </div>
 
