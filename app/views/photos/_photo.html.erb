@@ -1,6 +1,6 @@
 <div class="row py-2">
   <div class="col-auto">
-    <%= link_to image_tag(photo_thumb(photo)), photo_show(photo) %>
+    <%= link_to image_tag(photo_thumb(photo)), photo_show(photo) if photo_show(photo) %>
   </div>
   <div class="col-auto">
     <p>Добавил</p>

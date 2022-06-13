@@ -7,6 +7,8 @@ class PhotosController < ApplicationController
     @new_photo.user = current_user
 
     if @new_photo.save
+      EventMailer.with(event: @event, user_email: set_user_email, user_name: set_user_name, photo: @new_photo).photo.deliver_now
+
       redirect_to @event, notice: t("controllers.photo.created")
     else
       render 'events/show', status: :unprocessable_entity
@@ -37,5 +39,13 @@ class PhotosController < ApplicationController
 
   def photo_params
     params.fetch(:photo, {}).permit(:event, :photo)
+  end
+
+  def set_user_email
+    @new_photo.user.email
+  end
+
+  def set_user_name
+    @new_photo.user.name
   end
 end
