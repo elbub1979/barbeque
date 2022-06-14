@@ -6,12 +6,12 @@ class PhotosController < ApplicationController
     @new_photo = @event.photos.build(photo_params)
     @new_photo.user = current_user
 
-    if @new_photo.save
+    if @new_photo.photo.attached? && @new_photo.save
       EventMailer.with(event: @event, user_email: set_user_email, user_name: set_user_name, photo: @new_photo).photo.deliver_now
 
-      redirect_to @event, notice: t("controllers.photo.created")
+      redirect_to @event, notice: t("controllers.photos.created")
     else
-      render 'events/show', status: :unprocessable_entity
+      render 'events/show', alert: t('controllers.photos.error'), status: :unprocessable_entity
     end
   end
 
@@ -19,9 +19,10 @@ class PhotosController < ApplicationController
     message = { notice: t("controllers.photos.destroyed"), status: :see_other }
 
     if current_user_can_edit?(@photo)
+      @photo.photo.purge
       @photo.destroy
     else
-      message = { notice: t("controllers.subscriptions.error"), status: :see_other }
+      message = { alert: t("controllers.subscriptions.error"), status: :see_other }
     end
 
     redirect_to @event, message

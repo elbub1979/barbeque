@@ -1,6 +1,16 @@
 <div class="row py-2">
   <div class="col-auto">
     <%= link_to image_tag(photo_thumb(photo)), photo_show(photo) if photo_show(photo) %>
+
+    <% if current_user_can_edit?(photo) %>
+      <%= link_to(
+            event_photo_path(photo.event, photo),
+            data: { turbo_method: :delete, turbo_confirm: t('views.comments.comment.destroy_confirm')
+            },
+          ) do %>
+        <i class="bi-trash" role="img" aria-label="to_trash"></i>
+      <% end %>
+    <% end %>
   </div>
   <div class="col-auto">
     <p>Добавил</p>

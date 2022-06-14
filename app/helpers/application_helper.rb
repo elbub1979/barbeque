@@ -45,7 +45,8 @@ module ApplicationHelper
     photos = event.photos.persisted
 
     if photos.any?
-      url_for(photos.sample.photo.variant(:thumb))
+      photo = photos.sample.photo
+      url_for(photo.variant(:thumb)) if photo.attached?
     else
       asset_path('event_thumb.jpg')
     end
@@ -55,7 +56,8 @@ module ApplicationHelper
     photos = event.photos.persisted
 
     if photos.any?
-      url_for(photos.sample.photo)
+      photo = photos.sample.photo
+      url_for(photo) if photo.attached?
     else
       asset_path('event.jpg')
     end

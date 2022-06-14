@@ -31,16 +31,19 @@
     <div class="col-8">
       <div class="event-photos px-2">
         <div class="event-comment px-2">
-          <%= render partial: 'photos/form', locals: { photo: @new_photo || @event.photos.build } %>
+          <% if current_user %>
+            <%= render partial: 'photos/form', locals: { photo: @new_photo || @event.photos.build } %>
+          <% end %>
           <div class="pb-3">
             <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
           </div>
         </div>
       </div>
 
-
       <div class="event-comment pt-3">
-        <%= render partial: 'comments/form', locals: { comment: @new_comment || @event.comments.build } %>
+        <% if current_user %>
+          <%= render partial: 'comments/form', locals: { comment: @new_comment || @event.comments.build } %>
+        <% end %>
         <div class="pb-3">
           <%= render partial: 'comments/comment', collection: @event.comments.except(@new_comment) %>
         </div>
@@ -61,7 +64,7 @@
         </div>
       </div>
 
-      <% unless user_author?(@event) %>
+      <% unless !current_user.present? || user_author?(@event) %>
         <div class="event-subscription-form">
           <h4>Я пойду:</h4>
           <div>
