@@ -15,6 +15,9 @@ ru:
           attributes:
             user_email:
               subscribe_user_email: 'Пользователь с указанной электронной почтой существует'
+            event_subscribe:
+              event_creator: 'Невозможно подписаться на своё событие'
+
     # Перевод названий аттрибутов моделей
     attributes:
       user:
@@ -27,12 +30,6 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
-
-    validates:
-      errors:
-        subscription:
-          subscribe_user_email: 'Пользователь с указанной электронной почтой существует'
-          event_creator: 'Невозможно подписаться на своё событие'
 
   # Перевод сообщений, которые отправляет контроллер
   controllers:
