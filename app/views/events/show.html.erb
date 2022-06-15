@@ -44,7 +44,7 @@
         <% if current_user %>
           <%= render partial: 'comments/form', locals: { comment: @new_comment || @event.comments.build } %>
         <% end %>
-        <div class="pb-3">
+        <div class="py-3">
           <%= render partial: 'comments/comment', collection: @event.comments.except(@new_comment) %>
         </div>
       </div>
