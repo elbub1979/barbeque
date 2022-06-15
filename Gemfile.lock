@@ -267,6 +267,7 @@ DEPENDENCIES
   image_processing (>= 1.2)
   jbuilder
   jsbundling-rails
+  mini_magick
   pg
   pry-rails
   puma (~> 5.0)
