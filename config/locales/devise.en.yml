@@ -80,3 +80,11 @@ en:
     form:
       body: ""
   from: ""
+  event_mailer:
+    subscription:
+      name: ""
+      title: ""
+    photo:
+      title: ""
+    comment:
+      title: ""

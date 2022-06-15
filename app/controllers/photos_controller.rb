@@ -52,6 +52,5 @@ class PhotosController < ApplicationController
     all_emails.each do |email|
       EventMailer.with(event: event, user_email: email, user_name: set_user_name, photo: photo).photo.deliver_now
     end
-    EventMailer.with(event: event, user_email: current_user.email, user_name: set_user_name).photo.deliver_now
   end
 end

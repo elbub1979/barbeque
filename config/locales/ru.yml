@@ -70,22 +70,6 @@ ru:
       subscription:
         destroy_confirm: 'Вы уверены, что хотите отписаться от события?'
 
-    event_mailer:
-      comment:
-        title: 'Новый комментарий'
-        author: 'Автор'
-        event: 'Событие'
-        datetime: 'Состоится'
-        owner: 'Организатор'
-      subscription:
-        title: 'Новая подписка'
-        name: 'Имя'
-        email: 'Email'
-        author: 'Автор'
-        event: 'Событие'
-        datetime: 'Состоится'
-        owner: 'Организатор'
-
     comments:
       form:
         body: 'Текст'
@@ -115,5 +99,31 @@ ru:
 
   errors:
     format: '%{message}'
+
+  event_mailer:
+    photo:
+      title: 'Новая фотография'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+      photo: 'Фотография'
+    subscription:
+      title: 'Новая подписка'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+    comment:
+      title: 'Новый комментарий'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+
 
 
