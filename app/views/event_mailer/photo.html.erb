@@ -13,5 +13,6 @@
 <%= t '.owner' %>
 <h4><%= @event.user.name %></h4>
 
-<p><%= url_for(@photo.photo.variant(:show)) if @photo.photo.attached? %>></p>
-
+<% if @photo %>
+  <p><%= url_for(@photo.photo.variant(:show)) if @photo.photo.attached? %>></p>
+<% end %>

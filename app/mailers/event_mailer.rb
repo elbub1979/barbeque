@@ -23,6 +23,6 @@ class EventMailer < ApplicationMailer
     @name = params[:user_name]
     @event = params[:event]
 
-    mail(to: @event.user.email, subject: "Новое фото @ #{@event.title}")
+    mail(to: @email, subject: "Новое фото @ #{@event.title}")
   end
 end
