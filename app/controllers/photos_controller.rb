@@ -19,7 +19,6 @@ class PhotosController < ApplicationController
     message = { notice: t("controllers.photos.destroyed"), status: :see_other }
 
     if current_user_can_edit?(@photo)
-      @photo.photo.purge
       @photo.destroy
     else
       message = { alert: t("controllers.subscriptions.error"), status: :see_other }
@@ -47,7 +46,7 @@ class PhotosController < ApplicationController
   end
 
   def notify_subscribers(event, photo)
-    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq.reject { |email| email == current_user.email }
+    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq.reject { |email| email == photo.user.email }
 
     all_emails.each do |email|
       EventMailer.with(event: event, user_email: email, user_name: set_user_name, photo: photo).photo.deliver_now
