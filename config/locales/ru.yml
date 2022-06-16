@@ -17,6 +17,10 @@ ru:
               subscribe_user_email: 'Пользователь с указанной электронной почтой существует'
             event_subscribe:
               event_creator: 'Невозможно подписаться на своё событие'
+        photo:
+          attributes:
+            photo:
+              allowed_file_content_types: 'Загружаемый файл не является изображением'
 
     # Перевод названий аттрибутов моделей
     attributes:

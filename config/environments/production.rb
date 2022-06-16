@@ -109,11 +109,4 @@ Rails.application.configure do
     domain: 'smtp.gmail.com',
     openssl_verify_mode: 'none'
   }
-
-  config.active_storage.variable_content_types = %w[
-    image/png
-    image/jpg
-    image/jpeg
-    image/webp
-  ]
 end

@@ -18,11 +18,15 @@ module ApplicationHelper
   end
 
   def photo_thumb(photo)
-    url_for(photo.photo.variant(:thumb)) if photo.photo.attached?
+    if photo.photo.variable?
+      url_for(photo.photo.variant(:thumb)) if photo.photo.attached?
+    end
   end
 
   def photo_show(photo)
-    url_for(photo.photo.variant(:show)) if photo.photo.attached?
+    if photo.photo.variable?
+      url_for(photo.photo.variant(:show)) if photo.photo.attached?
+    end
   end
 
   def user_avatar_thumb(user)
@@ -66,6 +70,5 @@ module ApplicationHelper
   def fa_icon(icon_class)
     content_tag 'icon', '', class: "fa fa-#{icon_class}"
   end
-
 
 end
