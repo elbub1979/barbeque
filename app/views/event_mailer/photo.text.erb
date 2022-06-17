@@ -6,9 +6,9 @@ Email: <%=  @email %>
 
 ----------------------
 
-Событие: <%= @event.title %>
-Состоится: <%= l @event.datetime %>
-Организатор: <%= @event.user.name %>
+Событие: <%= @photo.event.title %>
+Состоится: <%= l @photo.event.datetime %>
+Организатор: <%= @photo.event.user.name %>
 <% if @photo && @photo.photo.variable? %>
   Фотография: <%= url_for(@photo.photo.variant(:show)) if @photo.photo.attached? %>>
 <% end %>

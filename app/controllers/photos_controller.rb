@@ -41,15 +41,15 @@ class PhotosController < ApplicationController
     params.fetch(:photo, {}).permit(:event, :photo)
   end
 
-  def set_user_name
-    @new_photo.user.name
-  end
-
   def notify_subscribers(event, photo)
     all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq.reject { |email| email == photo.user.email }
 
     all_emails.each do |email|
-      EventMailer.with(event: event, user_email: email, user_name: set_user_name, photo: photo).photo.deliver_now
+      EventMailer.with(user_email: email, user_name: user_name(email), photo: photo).photo.deliver_now
     end
+  end
+
+  def user_name(user_email)
+    User.find_by(email: user_email).name
   end
 end

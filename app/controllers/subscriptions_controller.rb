@@ -7,7 +7,7 @@ class SubscriptionsController < ApplicationController
     @new_subscription.user = current_user
 
     if @new_subscription.save
-      EventMailer.with(event: @event, subscriber_email: set_user_email, subscriber_name: set_user_name).subscription.deliver_now
+      EventMailer.with(subscription: @new_subscription).subscription.deliver_now
 
       redirect_to @event, notice: t("controllers.subscriptions.created")
     else
@@ -39,13 +39,5 @@ class SubscriptionsController < ApplicationController
 
   def subscription_params
     params.fetch(:subscription, {}).permit(:user_name, :user_email)
-  end
-  
-  def set_user_email
-    @new_subscription.user_email || @new_subscription.user.email
-  end
-  
-  def set_user_name
-    @new_subscription.user_name || @new_subscription.user.name
   end
 end

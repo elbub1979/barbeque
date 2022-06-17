@@ -5,10 +5,10 @@
 
 <%= t '.event' %>
 
-<h3><%= @event.title %></h3>
+<h3><%= @subscription.event.title %></h3>
 
 <%= t '.author' %>
-<h4><%= l @event.datetime %></h4>
+<h4><%= l @subscription.event.datetime %></h4>
 
 <%= t '.owner' %>
-<h4><%= @event.user.name %></h4>
+<h4><%= @subscription.event.user.name %></h4>

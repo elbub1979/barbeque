@@ -44,7 +44,7 @@ class CommentsController < ApplicationController
     all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq.reject { |email| email == comment.user.email }
 
     all_emails.each do |email|
-      EventMailer.with(event: event, comment: comment, email: email).comment.deliver_now
+      EventMailer.with(comment: comment, email: email).comment.deliver_now
     end
   end
 end

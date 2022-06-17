@@ -2,27 +2,35 @@ class EventMailer < ApplicationMailer
   default from: 'mybarbeque2022@gmail.com'
 
   def subscription
-    @subscriber_email = params[:subscriber_email]
-    @subscriber_name = params[:subscriber_name]
-    @event = params[:event]
+    @subscription = params[:subscription]
+    @subscriber_email = set_user_email
+    @subscriber_name = set_user_name
 
-    mail(to: @event.user.email, subject: "Новая подписка на #{@event.title}")
+    mail(to: @subscription.user.email, subject: "#{t('event_mailer.subscription.title')} #{@subscription.event.title}")
   end
 
   def comment
     @comment = params[:comment]
-    @event = params[:event]
     email = params[:email]
 
-    mail(to: email, subject: "Новый комментарий @ #{@event.title}")
+    mail(to: email, subject: "#{t('event_mailer.comment.title')} @ #{@comment.event.title}")
   end
 
   def photo
     @photo = params[:photo]
     @email = params[:user_email]
     @name = params[:user_name]
-    @event = params[:event]
 
-    mail(to: @email, subject: "Новое фото @ #{@event.title}")
+    mail(to: @email, subject: "#{t('event_mailer.photo.title')} @ #{@photo.event.title}")
+  end
+
+  private
+
+  def set_user_email
+    @subscription.user_email || @subscription.user.email
+  end
+
+  def set_user_name
+    @subscription.user_name || @subscription.user.name
   end
 end

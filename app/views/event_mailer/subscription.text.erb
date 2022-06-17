@@ -6,6 +6,6 @@ Email: <%=  @email %>
 
 ----------------------
 
-Событие: <%= @event.title %>
-Состоится: <%= l @event.datetime %>
-Организатор: <%= @event.user.name %>
+Событие: <%= @subscription.event.title %>
+Состоится: <%= l @subscription.event.datetime %>
+Организатор: <%= @subscription.event.user.name %>
