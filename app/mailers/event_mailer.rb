@@ -6,7 +6,7 @@ class EventMailer < ApplicationMailer
     @subscriber_email = set_user_email
     @subscriber_name = set_user_name
 
-    mail(to: @subscription.user.email, subject: "#{t('event_mailer.subscription.title')} #{@subscription.event.title}")
+    mail(to: @subscriber_email, subject: "#{t('event_mailer.subscription.title')} #{@subscription.event.title}")
   end
 
   def comment

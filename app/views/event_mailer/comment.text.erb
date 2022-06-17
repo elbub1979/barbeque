@@ -6,6 +6,6 @@
 <%= t '.author' %>: <%= @comment.user_name %>
 
 --------------------------------
-<%= t '.event' %>: <%= @event.title %>
-<%= t '.datetime' %>: <%= l @event.datetime %>
-<%= t '.owner' %>: <%= @event.user.name %>
+<%= t '.event' %>: <%= @comment.event.title %>
+<%= t '.datetime' %>: <%= l @comment.event.datetime %>
+<%= t '.owner' %>: <%= @comment.event.user.name %>
