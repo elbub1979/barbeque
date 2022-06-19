@@ -42,14 +42,15 @@ class PhotosController < ApplicationController
   end
 
   def notify_subscribers(event, photo)
-    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq.reject { |email| email == photo.user.email }
+    all_subscribers = all_subscribers(event).reject { |key, value| key == photo.user.email }
 
-    all_emails.each do |email|
-      EventMailer.with(user_email: email, user_name: user_name(email), photo: photo).photo.deliver_now
+    all_subscribers.each do |email, name|
+      EventMailer.with(user_email: email, user_name: name, photo: photo).photo.deliver_now
     end
   end
 
-  def user_name(user_email)
-    User.find_by(email: user_email).name
+  def all_subscribers(event)
+    event.all_subscriptions.to_h { |subscription| [subscription.user_email, subscription.user_name] }
   end
 end
+

@@ -1,12 +1,12 @@
 Новое фото
 ----
 
-Имя: <%= @name %>
-Email: <%=  @email %>
+Имя: <%= @photo.user.name %>
+Email: <%=  @photo.user.email %>
 
 ----------------------
 
-Событие: <%= @photo.event.title %>
+Событие: <%= link_to @photo.event.title, @photo.event %>
 Состоится: <%= l @photo.event.datetime %>
 Организатор: <%= @photo.event.user.name %>
 <% if @photo && @photo.photo.variable? %>

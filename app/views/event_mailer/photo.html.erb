@@ -1,10 +1,10 @@
 <h1><%= t '.title' %></h1>
-<p><%= t '.name' %>: <strong><%= @name %></strong></p>
-<p><%= t '.email' %>: <strong><%= link_to @mail, "mailto:#{@email}" %></strong></p>
+<p><%= t '.name' %>: <strong><%= @photo.user.name %></strong></p>
+<p><%= t '.email' %>: <strong><%= link_to @photo.user.email, "mailto:#{@photo.user.email}" %></strong></p>
 <hr/>
 
 <%= t '.event' %>
-<h3><%= @photo.event.title %></h3>
+<h3><%= link_to @photo.event.title, @photo.event %></h3>
 
 <%= t '.owner' %>
 <h4><%= @photo.event.user.name %></h4>
