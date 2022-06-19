@@ -128,9 +128,6 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jmespath (1.6.1)
-    jquery-turbolinks (2.1.0)
-      railties (>= 3.1.0)
-      turbolinks
     jsbundling-rails (1.0.2)
       railties (>= 6.0.0)
     loofah (2.18.0)
@@ -242,9 +239,6 @@ GEM
     turbo-rails (1.0.1)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     warden (1.2.9)
@@ -279,7 +273,6 @@ DEPENDENCIES
   i18n
   image_processing (>= 1.2)
   jbuilder
-  jquery-turbolinks
   jsbundling-rails
   mini_magick
   pg
