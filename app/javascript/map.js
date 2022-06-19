@@ -1,4 +1,5 @@
-ymaps.ready(init);
+$(document).on('turbolinks:load', function() {ymaps.ready(init);});
+
 var myMap;
 
 function init(){

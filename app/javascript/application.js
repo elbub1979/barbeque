@@ -2,4 +2,6 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import * as bootstrap from "bootstrap"
+import 'jquery.turbolinks'
+import 'jquery.turbolinks.min'
 import './map'
