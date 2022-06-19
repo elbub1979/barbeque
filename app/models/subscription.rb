@@ -2,18 +2,17 @@ class Subscription < ApplicationRecord
   belongs_to :event
   belongs_to :user, optional: true
 
+  validate :event_subscription
+
+
   with_options if: :user_present? do
     validates :user, uniqueness: { scope: :event_id }
-    # validates :user_email, uniqueness: { scope: :event_id }
   end
 
   with_options unless: :user_present? do
     validates :user_name, presence: true
     validates :user_email, presence: true, format: URI::MailTo::EMAIL_REGEXP
-    validate :unregistered_subscriber_email
   end
-
-  validate :event_creator
 
   before_validation :user_email_downcase
 
@@ -39,12 +38,12 @@ class Subscription < ApplicationRecord
     user_email.downcase! if user_email.present?
   end
 
-  def event_creator
-    errors.add(:event_subscribe, :event_creator) if event.user == user
-  end
+  def event_subscription
+    return errors.add(:user_email, :event_creator) if event.user.email == user_email
 
-  def unregistered_subscriber_email
-    errors.add(:user_email, :subscribe_user_email) if User.find_by(email: user_email)
+    errors.add(:user_email, :subscribe_user_email) if Subscription.where(event_id: event_id)
+                                                                  .find_by(user: User.where(email: user_email)) ||
+                                                      Subscription.where(event_id: event_id).find_by(user_email: user_email)
   end
 
   def user_present?
