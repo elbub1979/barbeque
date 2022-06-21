@@ -18,8 +18,7 @@ class EventMailer < ApplicationMailer
 
   def photo
     @photo = params[:photo]
-    @email = params[:user_email]
-    @name = params[:user_name]
+    @email = params[:email]
 
     mail(to: @email, subject: "#{t('event_mailer.photo.title')} @ #{@photo.event.title}")
   end

@@ -13,8 +13,4 @@ class Event < ApplicationRecord
   def visitors
     (subscribers + [user]).uniq
   end
-
-  def all_subscriptions
-    Subscription.where(event_id: id)
-  end
 end
