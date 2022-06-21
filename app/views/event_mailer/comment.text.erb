@@ -6,6 +6,6 @@
 
 ----------------------
 
-Событие: <%= link_to @photo.event.title, @photo.event %>
+Событие: <%= link_to @comment.event.title, @comment.event %>
 Состоится: <%= t '.datetime' %>: <%= l @comment.event.datetime %>
 Организатор: <%= t '.owner' %>: <%= @comment.event.user.name %>
