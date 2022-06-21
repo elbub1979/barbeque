@@ -3,8 +3,8 @@ class EventMailer < ApplicationMailer
 
   def subscription
     @subscription = params[:subscription]
-    @subscriber_email = set_user_email
-    @subscriber_name = set_user_name
+    @subscriber_email = @subscription.user_email
+    @subscriber_name = @subscription.user_name
 
     mail(to: @subscriber_email, subject: "#{t('event_mailer.subscription.title')} #{@subscription.event.title}")
   end
@@ -21,15 +21,5 @@ class EventMailer < ApplicationMailer
     @email = params[:email]
 
     mail(to: @email, subject: "#{t('event_mailer.photo.title')} @ #{@photo.event.title}")
-  end
-
-  private
-
-  def set_user_email
-    @subscription.user_email || @subscription.user.email
-  end
-
-  def set_user_name
-    @subscription.user_name || @subscription.user.name
   end
 end
