@@ -80,8 +80,8 @@ Rails.application.configure do
     port: 587,
     authentication: 'plain',
     enable_starttls_auto: true,
-    user_name: 'mybarbeque2022@gmail.com',
-    password: 'awxuidnotgelxqkl',
+    user_name: ENV['GOOGLE_MAIL_LOGIN'],
+    password: ENV['GOOGLE_MAIL_PASSWORD'],
     domain: 'smtp.gmail.com',
     openssl_verify_mode: 'none'
   }

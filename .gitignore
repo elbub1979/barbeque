@@ -42,3 +42,4 @@
 # custom
 /checkfile.txt
 /public/uploads
+/.env
