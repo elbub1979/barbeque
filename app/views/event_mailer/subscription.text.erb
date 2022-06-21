@@ -1,11 +1,11 @@
 Новая подписка
 ----
 
-Имя: <%= @name %>
-Email: <%=  @email %>
+Имя: <%= @subscriber_name %>
+Email: <%=  @subscriber_email %>
 
 ----------------------
 
-Событие: <%= @subscription.event.title %>
+Событие: <%= link_to @photo.event.title, @photo.event %>
 Состоится: <%= l @subscription.event.datetime %>
 Организатор: <%= @subscription.event.user.name %>
