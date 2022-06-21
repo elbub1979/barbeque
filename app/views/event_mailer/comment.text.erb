@@ -1,11 +1,11 @@
-<%= t '.title' %>
+Новый комментарий
 ----
 
-<%= @comment.body %>
+Комментарий: <%= @comment.body %>
+Автор: <%= t '.author' %>: <%= @comment.user_name %>
 
-<%= t '.author' %>: <%= @comment.user_name %>
+----------------------
 
---------------------------------
-<%= t '.event' %>: <%= @comment.event.title %>
-<%= t '.datetime' %>: <%= l @comment.event.datetime %>
-<%= t '.owner' %>: <%= @comment.event.user.name %>
+Событие: <%= link_to @photo.event.title, @photo.event %>
+Состоится: <%= t '.datetime' %>: <%= l @comment.event.datetime %>
+Организатор: <%= t '.owner' %>: <%= @comment.event.user.name %>
