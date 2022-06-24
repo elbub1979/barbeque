@@ -13,6 +13,7 @@ gem 'i18n'
 gem 'image_processing', '>= 1.2'
 gem 'jbuilder'
 gem 'jsbundling-rails'
+gem 'mailjet'
 gem 'mini_magick'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.3'
@@ -28,8 +29,8 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console'
   gem "letter_opener"
+  gem 'web-console'
 end
 
 group :test do
