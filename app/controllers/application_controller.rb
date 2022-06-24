@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user_can_edit?
-  helper_method :user_author?
-  # helper_method :already_subscribe
   helper_method :current_user_present?
 
   def configure_permitted_parameters
@@ -17,10 +15,6 @@ class ApplicationController < ActionController::Base
   def current_user_can_edit?(model)
     user_signed_in? &&
       (model.user == current_user || (model.try(:event).present? && model.event.user == current_user))
-  end
-
-  def user_author?(event)
-    event.user == current_user
   end
 
   def current_user_present?
