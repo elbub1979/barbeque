@@ -3,7 +3,6 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import * as bootstrap from "bootstrap"
 import 'jquery'
-import './gallery'
 
-import 'lightgallery/css/lightgallery.css'
+import 'lightbox2/dist/js/lightbox-plus-jquery'
 import './map'

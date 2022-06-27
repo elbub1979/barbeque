@@ -40,7 +40,7 @@
           <% if current_user %>
             <%= render partial: 'photos/form', locals: { photo: @new_photo || @event.photos.build } %>
           <% end %>
-          <div class="pb-3" data-controller="lightbox">
+          <div class="pb-3">
             <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
           </div>
         </div>

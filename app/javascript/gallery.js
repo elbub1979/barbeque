@@ -1,5 +1,5 @@
-import { Application } from '@hotwired/stimulus'
-import Lightbox from 'stimulus-lightbox'
-
-const application = Application.start()
-application.register('lightbox', Lightbox)
+document.addEventListener("turbo:load", function() {
+    lightbox.option({
+        'alwaysShowNavOnTouchDevices': true
+    })
+})

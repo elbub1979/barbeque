@@ -629,10 +629,10 @@ kind-of@^6.0.2:
   resolved "https://registry.npmjs.org/kind-of/-/kind-of-6.0.3.tgz"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
 
-lightgallery@^2.3.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/lightgallery/-/lightgallery-2.5.0.tgz#9ab94dd3ebbc0a5cf830901aaafeaa75132cf54b"
-  integrity sha512-pzg5gwflLGlKaK1VqDKpb7yqQ/WSV/TxFaHRR7ld7G5iOI9gkJZ2qKKo2lyqvTvu8yAqNYXoU0w9O/Dll6POkw==
+lightbox2@^2.11.3:
+  version "2.11.3"
+  resolved "https://registry.yarnpkg.com/lightbox2/-/lightbox2-2.11.3.tgz#057d9244badb0f0fd4603c25d739a19a85a71978"
+  integrity sha512-Q4v6il/OK9ttgEkAxSok/jrI/LUbqTrePFchqP2x/59qaDIZgJjEEc5Xf7peSMc/55Zo5PAgmX6EiN/BeEeUBQ==
 
 loader-runner@^4.2.0:
   version "4.3.0"
@@ -947,13 +947,6 @@ source-map@~0.8.0-beta.0:
   integrity sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==
   dependencies:
     whatwg-url "^7.0.0"
-
-stimulus-lightbox@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/stimulus-lightbox/-/stimulus-lightbox-3.0.0.tgz#acd2ae81422f1416e38cd0d1aa54300ac88c72a8"
-  integrity sha512-GDzUDMxSxNvO2UmA/WFLoNLiNl0xcCFt92+SKvL2Zt3uflGIBhQpvdykrTkgiLxCaXxhVW4ba/PwEmliDvcQBg==
-  dependencies:
-    lightgallery "^2.3.0"
 
 strip-final-newline@^2.0.0:
   version "2.0.0"
