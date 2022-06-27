@@ -89,3 +89,7 @@ en:
     comment:
       title: ""
   new_subscribe: ""
+  events:
+    show:
+      change: ""
+  calling: ""

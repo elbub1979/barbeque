@@ -1,13 +1,13 @@
 module EventsHelper
-  def user_author?(event)
-    event.user == current_user
+  def user_not_author?(event)
+    event.user != current_user
   end
 
   def event_subscriptions
-    @event.subscriptions.exists?
+    @event.subscriptions.except(@new_subscription)
   end
 
-  def already_subscribe
-    @event.visitors.include?(current_user)
+  def not_subscribe?
+    @event.visitors.none?(current_user)
   end
 end

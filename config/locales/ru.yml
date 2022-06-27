@@ -95,6 +95,15 @@ ru:
     one: 'событие'
     few: 'события'
     many: 'событий'
+
+    show:
+      change: 'Изменить'
+      destroy: 'Удалить'
+      sure: 'Вы уверены?'
+      calling: 'Зовёт:'
+      will_go: 'Пойдут:'
+      i_will_go: 'Я пойду:'
+
   comments:
 
   errors:
