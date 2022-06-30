@@ -93,3 +93,8 @@ en:
     show:
       change: ""
   calling: ""
+  photos:
+    photo:
+      append: ""
+    photo_title:
+      append: ""

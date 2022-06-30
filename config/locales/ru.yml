@@ -133,6 +133,11 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+  photos:
+    photo_title:
+      append: "Добавил"
+
+
 
 
 

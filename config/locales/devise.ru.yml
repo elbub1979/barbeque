@@ -115,3 +115,6 @@ ru:
     password:
       leave_blank: "оставьте пустым, если не хотите менять"
       confirm_your_changes: "введите текущий пароль для подтверждения"
+  photos:
+    photo:
+      append: ""

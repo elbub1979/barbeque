@@ -24,3 +24,26 @@
   border-color: rgba(40, 114, 251, 0.8) !important;
   box-shadow: 0 1px 1px rgba(148, 225, 155, 0.07) inset, 0 0 8px rgba(48, 203, 12, 0.6) !important;
 }
+
+/* for lightbox2 */
+
+.lb-nav a.lb-prev {
+  background: url('prev.png') no-repeat left 50%;
+  background-size: 50px;
+}
+
+.lb-nav a.lb-next {
+  background: url('next.png') no-repeat right 50%;
+  background-size: 50px;
+}
+
+.lb-data .lb-close {
+  width: 100px;
+  height: 100px;
+  background: url('close.png') bottom right no-repeat;
+  opacity:1;
+}
+
+.lb-cancel {
+  background: url('loading.gif') no-repeat;
+}

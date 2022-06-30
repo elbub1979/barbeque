@@ -1,5 +1,5 @@
-document.addEventListener("turbo:load", function() {
-    lightbox.option({
-        'alwaysShowNavOnTouchDevices': true
-    })
-})
+import lightbox from 'lightbox2/dist/js/lightbox-plus-jquery';
+
+lightbox.option({
+    'wrapAround': true
+});

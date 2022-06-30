@@ -18,7 +18,7 @@
             <div class="px-2 py-2">
               <%= link_to t('.change'), edit_event_path(@event),
                           class: 'btn btn-primary' %>
-              <%= link_to '.destroy', @event, data: { turbo_confirm: t(".sure"), turbo_method: :delete },
+              <%= link_to t('.destroy'), @event, data: { turbo_confirm: t(".sure"), turbo_method: :delete },
                           lass: 'btn btn-secondary' %>
             </div>
           <% end %>

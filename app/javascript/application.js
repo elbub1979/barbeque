@@ -4,5 +4,4 @@ import "./controllers"
 import * as bootstrap from "bootstrap"
 import 'jquery'
 
-import 'lightbox2/dist/js/lightbox-plus-jquery'
 import './map'
