@@ -1,0 +1,14 @@
+Новое фото
+----
+
+Имя: <%= @photo.user.name %>
+Email: <%=  @photo.user.email %>
+
+----------------------
+
+Событие: <%= link_to @photo.event.title, @photo.event %>
+Состоится: <%= l @photo.event.datetime %>
+Организатор: <%= @photo.event.user.name %>
+<% if @photo && @photo.photo.variable? %>
+  Фотография: <%= url_for(image_tag(@photo.photo.variant(:show))) if @photo.photo.attached? %>
+<% end %>

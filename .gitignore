@@ -38,3 +38,8 @@
 !/app/assets/builds/.keep
 
 /node_modules
+
+# custom
+/checkfile.txt
+/public/uploads
+.env

@@ -1,0 +1,11 @@
+Новый комментарий
+----
+
+Комментарий: <%= @comment.body %>
+Автор: <%= t '.author' %>: <%= @comment.user_name %>
+
+----------------------
+
+Событие: <%= link_to @comment.event.title, @comment.event %>
+Состоится: <%= t '.datetime' %>: <%= l @comment.event.datetime %>
+Организатор: <%= t '.owner' %>: <%= @comment.event.user.name %>

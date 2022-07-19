@@ -7,7 +7,11 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
-  def show; end
+  def show
+    @new_comment = @event.comments.build(params[:comment])
+    @new_subscription = @event.subscriptions.build(params[:subscription])
+    @new_photo = @event.photos.build(params[:photo])
+  end
 
   def new
     @event = current_user.events.build
@@ -19,7 +23,7 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
 
     if @event.save
-      redirect_to event_path(@event), notice: 'Событие добавлено.'
+      redirect_to event_path(@event), notice: t('controllers.events.created')
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,29 +31,29 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to event_path(@event), notice: 'Событие обновлено.'
+      redirect_to event_path(@event), notice: t('controllers.events.updated')
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    # @event.destroy
+    @event.destroy
 
-    redirect_to user_path(current_user), status: :see_other, notice: 'Событие удалено.'
+    redirect_to user_path(current_user), status: :see_other, notice: t('controllers.events.destroyed')
   end
-end
 
-private
+  private
 
-def set_event
-  @event = Event.find(params[:id])
-end
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
-def set_current_user_event
-  @event = current_user.events.find(params[:id])
-end
+  def set_current_user_event
+    @event = current_user.events.find(params[:id])
+  end
 
-def event_params
-  params.require(:event).permit(:title, :address, :datetime, :description)
+  def event_params
+    params.require(:event).permit(:title, :address, :datetime, :description)
+  end
 end

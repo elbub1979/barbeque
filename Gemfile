@@ -2,12 +2,19 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.2'
+gem 'aws-sdk-s3'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'devise'
-# gem 'devise-i18n'
+gem 'devise-i18n'
+gem 'dotenv-rails'
+gem 'file_validators'
+gem 'i18n'
+gem 'image_processing', '>= 1.2'
 gem 'jbuilder'
 gem 'jsbundling-rails'
+gem 'mailjet'
+gem 'mini_magick'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.3'
 gem 'rails-i18n'
@@ -22,6 +29,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "letter_opener"
   gem 'web-console'
 end
 
