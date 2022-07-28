@@ -59,7 +59,8 @@
         <h4><%= t('.calling') %></h4>
         <p><%= render partial: 'users/user', object: @event.user %></p>
       </div>
-      <% if (event_subscriptions = @event.subscriptions.except(@new_subscription).any?) %>
+      <% event_subscriptions = @event.subscriptions.except(@new_subscription) %>
+      <% if event_subscriptions.any? %>
         <div class="event-subscriptions">
           <h4><%= t('.will_go') %></h4>
           <div>
