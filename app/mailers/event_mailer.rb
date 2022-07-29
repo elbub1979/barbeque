@@ -1,6 +1,4 @@
 class EventMailer < ApplicationMailer
-  default from: 'mybarbeque2022@gmail.com'
-
   def comment
     @comment = params[:comment]
     email = params[:email]

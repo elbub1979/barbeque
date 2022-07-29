@@ -88,6 +88,8 @@ en:
       title: ""
     comment:
       title: ""
+    user:
+      owner: ""
   new_subscribe: ""
   events:
     show:
@@ -98,3 +100,8 @@ en:
       append: ""
     photo_title:
       append: ""
+  user_mailer:
+    user:
+      title: ""
+    sign_in:
+      title: ""

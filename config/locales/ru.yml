@@ -133,10 +133,15 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+
+  user_mailer:
+    sign_in:
+      title: 'Новая регистрация'
+      new_registration: 'Зарегистрировался новый участник'
+
   photos:
     photo_title:
       append: "Добавил"
-
 
 
 
