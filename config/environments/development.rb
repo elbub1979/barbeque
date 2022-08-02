@@ -71,7 +71,10 @@ Rails.application.configure do
   #   config.action_mailer.perform_caching = false
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: ENV['DEFAULT_DEV_HOST'], port: ENV['DEFAULT_DEV_PORT'] }
+  config.action_mailer.default_url_options = {
+    host: Rails.application.credentials.development[:host],
+    port: Rails.application.credentials.development[:port]
+  }
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
 end

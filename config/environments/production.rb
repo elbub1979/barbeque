@@ -97,7 +97,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: ENV['DEFAULT_PROD_HOST'] }
+  config.action_mailer.default_url_options = { host: Rails.application.credentials.production[:host] }
   config.action_mailer.delivery_method = :mailjet
-  config.asset_host = ENV['DEFAULT_PROD_HOST']
+  config.asset_host = Rails.application.credentials.production[:host]
 end

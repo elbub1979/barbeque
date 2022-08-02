@@ -23,5 +23,5 @@ test:
 production:
   adapter: postgresql
   user: deploy
-  database: Rails.application.credentials[:postgres][:postgres_production_database]
-  password: Rails.application.credentials[:postgres][:postgres_production_password]
+  database: <%= Rails.application.credentials.postgres[:production_database] %>
+  password: <%= Rails.application.credentials.postgres[:production_password] %>

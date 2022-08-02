@@ -25,7 +25,7 @@ module Barbeque
       html_tag
     }
     config.active_storage.replace_on_assign_to_many = false
-    config.asset_host = ENV['DEFAULT_DEV_ASSET_HOST']
+    config.asset_host = Rails.application.credentials.development[:asset_host]
 
   end
 end
