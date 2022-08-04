@@ -40,6 +40,11 @@ group :test do
 end
 
 group :production do
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
   gem 'pg'
   gem 'rails_12factor'
 end
