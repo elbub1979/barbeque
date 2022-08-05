@@ -60,4 +60,4 @@
 #     # password: "please use keys"
 #   }
 
-server 'mybarbeque.ru', user: 'deploy', roles: %w[app db web]
+server 'mybarbeque.ru', user: 'deploy', roles: %w{app db web}

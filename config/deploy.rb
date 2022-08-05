@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.17.0"
+lock '~> 3.17.0'
 
 # Это имя приложения
 set :application, 'barbeque'
@@ -11,7 +11,7 @@ set :repo_url, 'git@github.com:elbub1979/barbeque.git'
 set :deploy_to, '/home/deploy/apps/barbeque'
 
 # Файлы, которые лежат вне репозитория
-append :linked_files, 'config/database.yml', 'config/secrets.yml'
+append :linked_files, 'config/database.yml', 'config/master.key'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads'
 
 # Default branch is :master
