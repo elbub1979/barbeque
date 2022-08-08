@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
+  include Pundit::Authorization
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action do
-    I18n.locale = :ru
-  end
+  # before_action I18n.locale = :ru
 
   helper_method :current_user_can_edit?
   helper_method :current_user_present?
@@ -19,5 +20,12 @@ class ApplicationController < ActionController::Base
 
   def current_user_present?
     current_user
+  end
+
+  private
+
+  def user_not_authorized
+    flash[:alert] = t('pundit.not_authorized')
+    redirect_to (request.referrer || root_path), status: :see_other
   end
 end

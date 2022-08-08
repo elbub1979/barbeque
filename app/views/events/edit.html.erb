@@ -1,5 +1,7 @@
 <h1>Editing Event</h1>
 
 <div class="px-2">
-  <%= render 'form' %>
+  <% if policy(@event).edit? %>
+    <%= render 'form' %>
+  <% end %>
 </div>

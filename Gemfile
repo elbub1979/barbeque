@@ -9,13 +9,13 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'dotenv-rails'
 gem 'file_validators'
-gem 'i18n'
 gem 'image_processing', '>= 1.2'
 gem 'jbuilder'
 gem 'jsbundling-rails'
 gem 'mailjet'
 gem 'mini_magick'
 gem 'puma', '~> 5.0'
+gem 'pundit'
 gem 'rails', '~> 7.0.3'
 gem 'rails-i18n'
 gem 'sprockets-rails'
@@ -24,12 +24,14 @@ gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
+  gem 'factory_bot_rails'
   gem 'pry-rails'
+  gem 'rspec-rails'
   gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
-  gem "letter_opener"
+  gem 'letter_opener'
   gem 'web-console'
 end
 

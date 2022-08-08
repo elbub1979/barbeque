@@ -105,3 +105,5 @@ en:
       title: ""
     sign_in:
       title: ""
+  pundit:
+    not_authorized: ""

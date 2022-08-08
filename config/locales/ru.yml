@@ -143,6 +143,9 @@ ru:
     photo_title:
       append: "Добавил"
 
+  pundit:
+    not_authorized: "Вы не можете сделать это!"
+
 
 
 

@@ -17,6 +17,10 @@ class User < ApplicationRecord
 
   after_commit :link_subscriptions, on: :create
 
+  def author?(event)
+    event.user == self
+  end
+
   private
 
   def link_subscriptions
