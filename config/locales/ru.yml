@@ -146,6 +146,9 @@ ru:
   pundit:
     not_authorized: "Вы не можете сделать это!"
 
-
+  recaptcha:
+    errors:
+      verification_failed: 'reCAPTCHA введена неправльно, попробуйте ещё раз'
+      recaptcha_unreachable: 'reCAPTCHA верификация на сервере ошибочна, попробуйте ещё раз'
 
 
