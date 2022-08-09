@@ -9,6 +9,7 @@ ru:
         many: 'Пользователей'
         other: 'Пользователей'
       event: 'Событие'
+
     errors:
       models:
         subscription:
@@ -41,16 +42,21 @@ ru:
       updated: 'Вы обновили мероприятие'
       destroyed: 'Вы удалили мероприятие :('
       non_created: 'Вы не создали мероприятие'
+      wrong_pincode: 'Неверный пин-код!'
+
     users:
       updated: 'Вы обновили свой профиль'
+
     comments:
       created: 'Вы оставили новый комментарий'
       error: 'Ошибка с с омментарием'
       destroyed: 'Комментарий удалён'
+
     subscriptions:
       created: 'Вы подписаны на это событие'
       destroyed:  'Участник отписан'
       error: 'Подписка/отписка не сработала'
+
     photos:
       created: 'Вы загрузили фотографию для этого событие'
       destroyed: 'Фотография удалена'
@@ -150,5 +156,8 @@ ru:
     errors:
       verification_failed: 'reCAPTCHA введена неправльно, попробуйте ещё раз'
       recaptcha_unreachable: 'reCAPTCHA верификация на сервере ошибочна, попробуйте ещё раз'
+
+  event:
+    pincode: 'Пин-код доступа'
 
 
