@@ -7,11 +7,14 @@ class EventPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    return true if record.event.pincode.blank?
+    return true if user&.author?(record.event)
+
+    record.event.pincode_valid?(record.pincode)
   end
 
   def update?
-    user&.author?(record)
+    user&.author?(record.event)
   end
 
   def edit?
@@ -19,6 +22,6 @@ class EventPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user&.author?(record)
+    user&.author?(record.event)
   end
 end

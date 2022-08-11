@@ -9,30 +9,142 @@ RSpec.describe EventPolicy do
 
   subject { EventPolicy }
 
-  context 'user is not owner' do
-    permissions :show? do
-      it 'should permit to show event' do
-        is_expected.to permit(user1, event)
+  context 'event without pincode' do
+    before { event.pincode = nil }
+    let(:event_context) { EventContext.new(event: event, pincode: nil) }
+
+    context 'without authorize user' do
+      permissions :show? do
+        it 'should permit to show event' do
+          is_expected.to permit(nil, event_context)
+        end
+      end
+
+      permissions :edit?, :update?, :destroy? do
+        it 'should not permit to edit, update, destroy event' do
+          is_expected.not_to permit(nil, event_context)
+        end
       end
     end
 
-    permissions :edit?, :update?, :destroy? do
-      it 'should not permit to edit, update, destroy event' do
-        is_expected.not_to permit(user1, event)
+    context 'with authorize user' do
+      context 'user is not owner' do
+        permissions :show? do
+          it 'should permit to show event' do
+            is_expected.to permit(user1, event_context)
+          end
+
+          permissions :edit?, :update?, :destroy? do
+            it 'should not permit to edit, update, destroy event' do
+              is_expected.not_to permit(nil, event_context)
+            end
+          end
+        end
+
+        context 'user is owner' do
+          permissions :show? do
+            it 'should permit to show event' do
+              is_expected.to permit(user2, event_context)
+            end
+          end
+
+          permissions :edit?, :update?, :destroy? do
+            it 'should not permit to edit, update, destroy event' do
+              is_expected.not_to permit(nil, event_context)
+            end
+          end
+        end
       end
     end
   end
 
-  context 'user is owner' do
-    permissions :show? do
-      it 'should permit to show event' do
-        is_expected.to permit(user2, event)
+  context 'event with pincode' do
+    before { event.pincode = '123' }
+
+    context 'without authorize user' do
+
+      context 'non authorized user without pincode' do
+        let(:event_context) { EventContext.new(event: event, pincode: nil) }
+
+        permissions :show? do
+          it 'should not permit to show event' do
+            is_expected.not_to permit(nil, event_context)
+          end
+        end
+
+        permissions :edit?, :update?, :destroy? do
+          it 'should not permit to edit, update, destroy event' do
+            is_expected.not_to permit(nil, event_context)
+          end
+        end
+      end
+
+      context 'non authorized user with pincode' do
+        let(:event_context) { EventContext.new(event: event, pincode: '123') }
+
+        permissions :show? do
+          it 'should permit to show event' do
+            is_expected.to permit(nil, event_context)
+          end
+        end
+
+        permissions :edit?, :update?, :destroy? do
+          it 'should not permit to edit, update, destroy event' do
+            is_expected.not_to permit(nil, event_context)
+          end
+        end
       end
     end
 
-    permissions :edit?, :update?, :destroy? do
-      it 'should not permit to edit, update, destroy event' do
-        is_expected.to permit(user2, event)
+    context 'with authorize user' do
+      context 'user is not owner' do
+        context 'without pincode' do
+          let(:event_context) { EventContext.new(event: event, pincode: nil) }
+
+          permissions :show? do
+            it 'should not permit to show event' do
+              is_expected.not_to permit(user1, event_context)
+            end
+          end
+
+          permissions :edit?, :update?, :destroy? do
+            it 'should not permit to edit, update, destroy event' do
+              is_expected.not_to permit(user1, event_context)
+            end
+          end
+        end
+
+        context 'with pincode' do
+          let(:event_context) { EventContext.new(event: event, pincode: '123') }
+
+          permissions :show? do
+            it 'should permit to show event' do
+              is_expected.to permit(user1, event_context)
+            end
+          end
+
+          permissions :edit?, :update?, :destroy? do
+            it 'should not permit to edit, update, destroy event' do
+              is_expected.not_to permit(user1, event_context)
+            end
+          end
+        end
+      end
+
+      context 'user is owner' do
+        let(:event_context) { EventContext.new(event: event, pincode: nil) }
+
+        permissions :show? do
+          it 'should permit to show event' do
+            is_expected.to permit(user2, event_context)
+          end
+        end
+
+        permissions :edit?, :update?, :destroy? do
+          it 'should permit to edit, update, destroy event' do
+            is_expected.to permit(user2, event_context)
+          end
+        end
       end
     end
   end
