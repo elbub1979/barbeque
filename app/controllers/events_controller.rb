@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
-  before_action :set_event, except: %i[index]
+  before_action :set_event, only: %i[show edit update destroy]
 
   after_action :verify_authorized, only: %i[edit update destroy show]
 
@@ -37,8 +37,6 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-
-    authorize @event
 
     if @event.save
       redirect_to event_path(@event), notice: t('controllers.events.created')

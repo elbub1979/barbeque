@@ -14,7 +14,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def update?
-    user&.author?(record.event)
+    user&.author?(record)
   end
 
   def edit?

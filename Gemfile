@@ -19,6 +19,7 @@ gem 'pundit'
 gem 'rails', '~> 7.0.3'
 gem 'rails-i18n'
 gem 'recaptcha'
+gem 'resque'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
@@ -48,6 +49,7 @@ group :production do
   gem 'capistrano-passenger'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+  gem 'capistrano-resque', require: false
   gem 'pg'
   gem 'rails_12factor'
 end

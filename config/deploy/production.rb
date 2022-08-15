@@ -60,4 +60,7 @@
 #     # password: "please use keys"
 #   }
 
-server 'mybarbeque.ru', user: 'deploy', roles: %w{app db web}
+server 'mybarbeque.ru', user: 'deploy', roles: %w{app db web resque_worker}
+
+set :resque_environment_task, true
+set :workers, { "#{fetch(:application)}*" => 1 }
