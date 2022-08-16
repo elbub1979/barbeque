@@ -43,6 +43,6 @@ class CommentsController < ApplicationController
   def notify_subscribers(event)
     all_emails = (event.subscriptions.map(&:user_email) + [event.user.email] - [@new_comment.user&.email]).uniq
 
-    SendSubscriptionNotification.perform_later(all_emails)
+    SendSubscriptionNotification.perform_later(all_emails, @new_comment)
   end
 end
