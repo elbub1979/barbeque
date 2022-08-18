@@ -80,6 +80,8 @@ Rails.application.configure do
 
   config.active_job.queue_adapter = :resque
   config.active_job.queue_name_prefix = "barbeque_#{Rails.env}"
+
+  config.hosts << "lvh.me"
 end
 
 

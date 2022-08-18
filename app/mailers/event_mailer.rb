@@ -1,6 +1,6 @@
 class EventMailer < ApplicationMailer
   def comment
-    @comment = params[:comment]
+    @comment = params[:notification]
     email = params[:email]
 
     mail(to: email, subject: "#{t('event_mailer.comment.title')} @ #{@comment.event.title}")
@@ -15,7 +15,7 @@ class EventMailer < ApplicationMailer
   end
 
   def photo
-    @photo = params[:photo]
+    @photo = params[:notification]
     @email = params[:email]
 
     mail(to: @email, subject: "#{t('event_mailer.photo.title')} @ #{@photo.event.title}")
