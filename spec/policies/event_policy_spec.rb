@@ -9,6 +9,27 @@ RSpec.describe EventPolicy do
 
   subject { EventPolicy }
 
+  context 'without authorize user' do
+    let(:event_context) { EventContext.new(event: event, pincode: nil) }
+
+    permissions :create? do
+      it 'should not permit to create event' do
+        is_expected.not_to permit(nil, event_context)
+      end
+    end
+  end
+
+  context 'with authorize user' do
+    let(:event_context) { EventContext.new(event: event, pincode: nil) }
+
+    permissions :create? do
+      it 'should permit to create event' do
+        is_expected.to permit(user1, event_context)
+      end
+    end
+  end
+
+
   context 'event without pincode' do
     before { event.pincode = nil }
     let(:event_context) { EventContext.new(event: event, pincode: nil) }
@@ -33,11 +54,11 @@ RSpec.describe EventPolicy do
           it 'should permit to show event' do
             is_expected.to permit(user1, event_context)
           end
+        end
 
-          permissions :edit?, :update?, :destroy? do
-            it 'should not permit to edit, update, destroy event' do
-              is_expected.not_to permit(nil, event_context)
-            end
+        permissions :edit?, :update?, :destroy? do
+          it 'should not permit to edit, update, destroy event' do
+            is_expected.not_to permit(nil, event_context)
           end
         end
 
@@ -109,6 +130,7 @@ RSpec.describe EventPolicy do
 
           permissions :edit?, :update?, :destroy? do
             it 'should not permit to edit, update, destroy event' do
+
               is_expected.not_to permit(user1, event_context)
             end
           end

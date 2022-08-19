@@ -39,6 +39,7 @@ end
 group :development do
   gem 'letter_opener'
   gem 'web-console'
+  gem 'byebug'
 end
 
 group :test do

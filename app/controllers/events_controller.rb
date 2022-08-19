@@ -36,6 +36,8 @@ class EventsController < ApplicationController
   end
 
   def create
+    authorize Event
+
     @event = current_user.events.build(event_params)
 
     if @event.save

@@ -13,8 +13,12 @@ class EventPolicy < ApplicationPolicy
     record.event.pincode_valid?(record.pincode)
   end
 
+  def create?
+    user.present?
+  end
+
   def update?
-    user&.author?(record)
+    user&.author?(record.event)
   end
 
   def edit?
