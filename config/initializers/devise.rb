@@ -275,13 +275,23 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :github, Rails.application.credentials.omniauth.development.github[:client_id],
-                  Rails.application.credentials.omniauth.development.github[:client_secret]
+  if Rails.env.production?
+    config.omniauth :github,
+                    Rails.application.credentials.omniauth.production.github[:client_id],
+                    Rails.application.credentials.omniauth.production.github[:client_secret]
 
-  config.omniauth :google_oauth2,
-                  Rails.application.credentials.omniauth.development.google[:client_id],
-                  Rails.application.credentials.omniauth.development.google[:client_secret],
-                  { scope: 'email, profile' }
+    config.omniauth :google_oauth2,
+                    Rails.application.credentials.omniauth.production.google[:client_id],
+                    Rails.application.credentials.omniauth.production.google[:client_secret]
+  else
+    config.omniauth :github,
+                    Rails.application.credentials.omniauth.development.github[:client_id],
+                    Rails.application.credentials.omniauth.development.github[:client_secret]
+
+    config.omniauth :google_oauth2,
+                    Rails.application.credentials.omniauth.development.google[:client_id],
+                    Rails.application.credentials.omniauth.development.google[:client_secret]
+  end
 
   config.omniauth_path_prefix = "/users/auth"
 
