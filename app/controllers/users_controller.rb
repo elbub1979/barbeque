@@ -15,16 +15,14 @@ class UsersController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
+
+  private
+
+  def set_current_user
+    @user = current_user
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :email, :avatar)
+  end
 end
-
-private
-
-def set_current_user
-  @user = current_user
-end
-
-# Only allow a list of trusted parameters through.
-def user_params
-  params.require(:user).permit(:name, :email, :avatar)
-end
-

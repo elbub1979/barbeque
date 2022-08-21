@@ -278,10 +278,10 @@ Devise.setup do |config|
   config.omniauth :github, Rails.application.credentials.omniauth.development.github[:client_id],
                   Rails.application.credentials.omniauth.development.github[:client_secret]
 
-  #config.omniauth :google_oauth2,
-  #                Rails.application.credentials.oauth.development.google[:client_id],
-  #                Rails.application.credentials.oauth.development.google[:client_secret],
-  #                scope: 'userinfo.email,user.profile'
+  config.omniauth :google_oauth2,
+                  Rails.application.credentials.omniauth.development.google[:client_id],
+                  Rails.application.credentials.omniauth.development.google[:client_secret],
+                  { scope: 'email, profile' }
 
   config.omniauth_path_prefix = "/users/auth"
 

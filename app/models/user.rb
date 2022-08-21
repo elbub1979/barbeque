@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[github google]
+         :omniauthable, omniauth_providers: %i[github google_oauth2]
 
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -22,9 +22,10 @@ class User < ApplicationRecord
     event.user == self
   end
 
-  def self.find_for_github_oauth(access_token)
+  def self.github_from_github(access_token)
     # Достаём email из токена
     email = access_token.info.email
+    name = access_token.info.name
     user = where(email: email).first
 
     # Возвращаем, если нашёлся
@@ -32,21 +33,30 @@ class User < ApplicationRecord
 
     # Если не нашёлся, достаём провайдера, айдишник и урл
     provider = access_token.provider
-    id = access_token.extra.raw_info.id
-    url = "https://github.com/#{id}"
+    url = "https://github.com/#{name}"
 
     # Теперь ищем в базе запись по провайдеру и урлу
     # Если есть, то вернётся, если нет, то будет создана новая
-    user = User.find_by(url: url, provider: provider)
-    if user&.persisted?
-      user
-    else
-      user.email = email
-      user.password = Devise.friendly_token.first(16)
-      user
-    end
     where(url: url, provider: provider).first_or_create! do |user|
       # Если создаём новую запись, прописываем email и пароль
+      user.name = name
+      user.email = email
+      user.password = Devise.friendly_token.first(16)
+    end
+  end
+
+  def self.google_from_omniauth(access_token)
+    email = access_token.info.email
+    name = access_token.info.name
+    user = where(email: email).first
+
+    return user if user.present?
+
+    provider = access_token.provider
+    url = "https://plus.google.com/+#{name.gsub(/\s+/, '')}" # не смог найти возможность получения корректной ссылк на профиль
+
+    where(url: url, provider: provider).first_or_create! do |user|
+      user.name = name
       user.email = email
       user.password = Devise.friendly_token.first(16)
     end
