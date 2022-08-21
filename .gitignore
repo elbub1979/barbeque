@@ -42,3 +42,11 @@
 # custom
 /checkfile.txt
 /public/uploads
+/.cacert.pem
+/.byebug_history
+/dump*
+/memo.txt
+/test.test
+/checkfile*
+/Aptfile
+/yarn-error.log

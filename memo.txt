@@ -1,2 +1,0 @@
-1. yarn build --watch
-2. yarn build:css --watch
