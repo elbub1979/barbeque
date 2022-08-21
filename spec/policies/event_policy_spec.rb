@@ -89,7 +89,7 @@ RSpec.describe EventPolicy do
 
         permissions :show? do
           it 'should not permit to show event' do
-            is_expected.to permit(nil, event_context)
+            is_expected.not_to permit(nil, event_context)
           end
         end
 
@@ -124,7 +124,7 @@ RSpec.describe EventPolicy do
 
           permissions :show? do
             it 'should not permit to show event' do
-              is_expected.to permit(user1, event_context)
+              is_expected.not_to permit(user1, event_context)
             end
           end
 
