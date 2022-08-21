@@ -1,7 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def github
     # Дёргаем метод модели, который найдёт пользователя
-    @user = User.github_from_github(request.env['omniauth.auth'])
+    @user = User.github_from_omniauth(request.env['omniauth.auth'])
 
     # Если юзер есть, то логиним и редиректим на его страницу
     if @user.persisted?

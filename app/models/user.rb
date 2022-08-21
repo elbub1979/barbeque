@@ -22,7 +22,7 @@ class User < ApplicationRecord
     event.user == self
   end
 
-  def self.github_from_github(access_token)
+  def self.github_from_omniauth(access_token)
     # Достаём email из токена
     email = access_token.info.email
     name = access_token.info.name
