@@ -17,4 +17,12 @@ class Event < ApplicationRecord
   def pincode_valid?(pin2chek)
     pincode == pin2chek
   end
+
+  def not_author?(current_user)
+    user != current_user
+  end
+
+  def not_subscribe?(current_user)
+    visitors.none?(current_user)
+  end
 end
