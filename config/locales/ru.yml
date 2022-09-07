@@ -17,6 +17,7 @@ ru:
             user_email:
               subscribe_user_email: 'Пользователь с указанной электронной почтой существует'
               event_creator: 'Невозможно подписаться на своё событие'
+              present_user: 'Пользователь зарегистрирован, авторизуйтесь'
         photo:
           attributes:
             photo:
