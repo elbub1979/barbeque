@@ -12,7 +12,7 @@ class Subscription < ApplicationRecord
     validates :user_email, presence: true, format: URI::MailTo::EMAIL_REGEXP
     validate :event_subscription
     validate :event_author
-    validate :registered_user
+    validate :user_exist
   end
 
   before_validation :user_email_downcase
@@ -47,7 +47,7 @@ class Subscription < ApplicationRecord
     errors.add(:user_email, :subscribe_user_email) if event.subscriptions.exists?(user: User.where(email: user_email))
   end
 
-  def registered_user
+  def user_exist
     errors.add(:user_email, :present_user) if User.exists?(email: user_email)
   end
 
