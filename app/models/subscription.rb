@@ -5,7 +5,7 @@ class Subscription < ApplicationRecord
   validate :event_author_presence
 
   with_options if: :user_present? do
-    validates :user, uniqueness: { scope: :event_id, message: 'Пользователь уже подписан на событие' }
+    validates :user, uniqueness: { scope: :event_id, message: I18n.t('already_subscribed') }
   end
 
   with_options unless: :user_present? do
