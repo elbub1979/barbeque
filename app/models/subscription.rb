@@ -2,16 +2,15 @@ class Subscription < ApplicationRecord
   belongs_to :event
   belongs_to :user, optional: true
 
-  validate :event_author_presence
-
   with_options if: :user_present? do
-    validates :user, uniqueness: { scope: :event_id, message: I18n.t('already_subscribed') }
+    validates :user, uniqueness: { scope: :event_id }
+    validate :event_author_presence
   end
 
   with_options unless: :user_present? do
     validates :user_name, presence: true
-    validates :user_email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: :wrong_email },
-                           uniqueness: { message: :subscribe_user_email }
+    validates :user_email, presence: true, format: URI::MailTo::EMAIL_REGEXP,
+                           uniqueness: true
     validate :user_presence
   end
 
@@ -44,7 +43,7 @@ class Subscription < ApplicationRecord
   end
 
   def user_presence
-    errors.add(:user_email, :user_presence) if User.excluding(event.user).exists?(email: user_email)
+    errors.add(:user_email, :user_presence) if User.exists?(email: user_email)
   end
 
   def user_present?
