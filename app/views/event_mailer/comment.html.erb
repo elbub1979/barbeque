@@ -1,0 +1,11 @@
+<h3><%= t '.title' %></h3>
+
+<p><%= @comment.body %></p>
+<p><%= t '.author' %>: <strong><%= @comment.user_name %></strong></p>
+
+<hr>
+
+<h3><%= t '.event' %>: <%= link_to @comment.event.title, @comment.event %></h3>
+<h4><%= t '.datetime' %>: <%= l @comment.event.datetime %></h4>
+<h4><%= t '.owner' %>: <%= @comment.event.user.name %></h4>
+

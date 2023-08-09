@@ -1,0 +1,11 @@
+<h3><%= t '.title' %></h3>
+
+<p><%= t '.name' %>: <strong><%= @subscriber_name %></strong></p>
+<p><%= t '.email' %>: <strong><%= @subscriber_email %></strong></p>
+
+<hr/>
+
+<h4><%= t '.event' %>: <%= link_to @subscription.event.title, @subscription.event %></h4>
+<h4><%= t '.datetime' %>: <%= l @subscription.event.datetime %></h4>
+
+<h4><%= t '.owner' %>: <%= @subscription.event.user.name %></h4>

@@ -1,0 +1,2 @@
+<% image_title = render partial: 'photos/photo_title', locals: { photo: photo } %>
+<%= link_to image_tag(photo_thumb(photo)), photo_show(photo), data: {lightbox: "roadtrip", title: image_title} if photo_show(photo) %>

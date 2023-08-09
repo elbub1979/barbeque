@@ -70,3 +70,40 @@ en:
   Didn't receive confirmation instructions?: ""
   Didn't receive unlock instructions?: ""
   User was successfully updated: ""
+  leave blank if you don't want to change it: ""
+  we need your current password to confirm your changes: ""
+  views:
+    comments:
+      comment:
+        destroy_confirm: ""
+  comments:
+    form:
+      body: ""
+  from: ""
+  event_mailer:
+    subscription:
+      name: ""
+      title: ""
+    photo:
+      title: ""
+    comment:
+      title: ""
+    user:
+      owner: ""
+  new_subscribe: ""
+  events:
+    show:
+      change: ""
+  calling: ""
+  photos:
+    photo:
+      append: ""
+    photo_title:
+      append: ""
+  user_mailer:
+    user:
+      title: ""
+    sign_in:
+      title: ""
+  pundit:
+    not_authorized: ""

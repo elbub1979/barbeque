@@ -1,0 +1,24 @@
+<div class="row border border-secondary rounded my-2">
+  <div class="d-flex align-content-center flex-wrap col-8 py-1">
+    <%= comment.body %>
+  </div>
+  <div class="d-flex align-content-center flex-wrap justify-content-between col-4 py-1">
+    <span>
+      <% if comment.user.present? %>
+        <%= render partial: 'users/user', object: comment.user %>
+      <% else %>
+        <em><strong><%= comment.user_name %></strong></em>
+      <% end %>
+       </span>
+    <em><%= l comment.created_at, format: :short %></em>
+      <% if current_user_can_edit?(comment) %>
+        <%= link_to(
+              event_comment_path(comment.event, comment),
+              data: { turbo_method: :delete, turbo_confirm: t('views.comments.comment.destroy_confirm')
+              },
+            ) do %>
+          <i class="bi-trash" role="img" aria-label="to_trash"></i>
+        <% end %>
+      <% end %>
+  </div>
+</div>

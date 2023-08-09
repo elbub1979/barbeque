@@ -21,6 +21,7 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
   adapter: postgresql
-  database: db/production.sqlite3
+  user: deploy
+  database: <%= Rails.application.credentials.postgres[:production_database] %>
+  password: <%= Rails.application.credentials.postgres[:production_password] %>

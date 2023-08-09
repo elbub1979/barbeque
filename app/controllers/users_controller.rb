@@ -10,21 +10,19 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to user_url(@user), notice: 'Данные пользвателя успешно обновлены.'
+      redirect_to user_url(@user), notice: t('controllers.users.updated')
     else
       render :edit, status: :unprocessable_entity
     end
   end
+
+  private
+
+  def set_current_user
+    @user = current_user
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :email, :avatar)
+  end
 end
-
-private
-
-def set_current_user
-  @user = current_user
-end
-
-# Only allow a list of trusted parameters through.
-def user_params
-  params.require(:user).permit(:name, :email)
-end
-

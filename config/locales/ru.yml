@@ -3,8 +3,35 @@ ru:
   activerecord:
     # Перевод названия моделей
     models:
-      user: 'Пользователь'
+      user:
+        one: 'Пользователь'
+        few: 'Пользователя'
+        many: 'Пользователей'
+        other: 'Пользователей'
       event: 'Событие'
+
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_name:
+              # переопределение стандартных ошибок валидаций
+              blank: 'Поле не может быть пустым'
+            user_email:
+              # переопределение стандартных ошибок валидаций
+              blank: 'Поле не может быть пустым'
+              invalid: 'Недопустимый формат адреса электронной почты'
+              taken: 'Пользователь уже подписан на событие'
+              # определение дополнительных ошибок
+              event_creator: 'Невозможно подписаться на своё событие'
+              user_presence: 'Пользователь зарегистрирован, авторизуйтесь'
+            user:
+              # переопределение стандартных ошибок валидаций
+              taken: 'Вы уже подписаны на событие'
+        photo:
+          attributes:
+            photo:
+              allowed_file_content_types: 'Загружаемый файл не является изображением'
 
     # Перевод названий аттрибутов моделей
     attributes:
@@ -25,8 +52,51 @@ ru:
       created: 'Вы создали новое мероприятие'
       updated: 'Вы обновили мероприятие'
       destroyed: 'Вы удалили мероприятие :('
+      non_created: 'Вы не создали мероприятие'
+      wrong_pincode: 'Неверный пин-код!'
+
     users:
       updated: 'Вы обновили свой профиль'
+
+    comments:
+      created: 'Вы оставили новый комментарий'
+      error: 'Ошибка с с омментарием'
+      destroyed: 'Комментарий удалён'
+
+    subscriptions:
+      created: 'Вы подписаны на это событие'
+      destroyed: 'Участник отписан'
+      error: 'Подписка/отписка не сработала'
+
+    photos:
+      created: 'Вы загрузили фотографию для этого событие'
+      destroyed: 'Фотография удалена'
+      error: 'Не удалось загрузить фотографию'
+
+  views:
+    error:
+      zero: 'ошибок'
+      one: 'ошибка'
+      few: 'ошибки'
+      many: 'ошибок'
+
+    subscriptions:
+      form:
+        user_name: 'Имя пользователя'
+        user_email: 'Электронная почта'
+      subscription:
+        destroy_confirm: 'Вы уверены, что хотите отписаться от события?'
+
+    comments:
+      form:
+        body: 'Текст'
+        user_name: 'Имя пользователя'
+      comment:
+        destroy_confirm: 'Вы уверены, что хотите удалить комментарий?'
+
+    photos:
+      form:
+        title: 'Загрузить фотографии'
 
   # Перевод названия приложения и компании-разработчика
   app:
@@ -35,4 +105,72 @@ ru:
 
   date:
     order: [ "day", "month", "year" ]
-  User was successfully updated: "Данные пользовтеля успешно обновлены!"
+
+  # Перевод и склонения вьюх
+  events:
+    zero: 'событий'
+    one: 'событие'
+    few: 'события'
+    many: 'событий'
+
+    show:
+      change: 'Изменить'
+      destroy: 'Удалить'
+      sure: 'Вы уверены?'
+      calling: 'Зовёт:'
+      will_go: 'Пойдут:'
+      i_will_go: 'Я пойду:'
+
+  comments:
+
+  errors:
+    format: '%{message}'
+
+  event_mailer:
+    photo:
+      title: 'Новая фотография'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+      photo: 'Фотография'
+    subscription:
+      title: 'Новая подписка'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+    comment:
+      title: 'Новый комментарий'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+
+  user_mailer:
+    sign_in:
+      title: 'Новая регистрация'
+      new_registration: 'Зарегистрировался новый участник'
+
+  photos:
+    photo_title:
+      append: "Добавил"
+
+  pundit:
+    not_authorized: "Вы не можете сделать это!"
+
+  recaptcha:
+    errors:
+      verification_failed: 'reCAPTCHA введена неправльно, попробуйте ещё раз'
+      recaptcha_unreachable: 'reCAPTCHA верификация на сервере ошибочна, попробуйте ещё раз'
+
+  event:
+    pincode: 'Пин-код доступа'
+
+  already_subscribed: 'Пользователь уже подписан на событие'
+
+

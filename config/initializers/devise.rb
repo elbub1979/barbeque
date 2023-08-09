@@ -24,7 +24,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'mybarbeque2022@gmail.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -275,7 +275,25 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  if Rails.env.production?
+    config.omniauth :github,
+                    Rails.application.credentials.omniauth.production.github[:client_id],
+                    Rails.application.credentials.omniauth.production.github[:client_secret]
+
+    config.omniauth :google_oauth2,
+                    Rails.application.credentials.omniauth.production.google[:client_id],
+                    Rails.application.credentials.omniauth.production.google[:client_secret]
+  else
+    config.omniauth :github,
+                    Rails.application.credentials.omniauth.development.github[:client_id],
+                    Rails.application.credentials.omniauth.development.github[:client_secret]
+
+    config.omniauth :google_oauth2,
+                    Rails.application.credentials.omniauth.development.google[:client_id],
+                    Rails.application.credentials.omniauth.development.google[:client_secret]
+  end
+
+  config.omniauth_path_prefix = "/users/auth"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -312,4 +330,7 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+  # custom
+  config.navigational_formats = ['*/*', :html, :turbo_stream]
 end

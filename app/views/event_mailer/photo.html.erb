@@ -1,0 +1,15 @@
+<h3><%= t '.title' %></h3>
+
+<p><%= t '.name' %>: <strong><%= @photo.user.name %></strong></p>
+<p><%= t '.email' %>: <strong><%= @photo.user.email %></strong></p>
+
+<hr>
+
+<h4><%= t '.event' %>: <%= link_to @photo.event.title, @photo.event %></h4>
+<h4><%= t '.datetime' %>: <%= @photo.event.datetime %></h4>
+<h4><%= t '.owner' %>: <%= @photo.event.user.name %></h4>
+
+<% if @photo.photo.variable? %>
+  <h4><%= t '.photo' %>:</h4>
+    <%= url_for(image_tag(@photo.photo.variant(:show))) if @photo.photo.attached? %>
+<% end %>
